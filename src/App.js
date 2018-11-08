@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Nav, Navbar, NavItem, MenuItem, NavDropdown, Modal} from 'react-bootstrap';
+import { Button } from 'reactstrap';
 
 import './App.css';
 
@@ -7,9 +7,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar>
-
-
+      <Button color="primary">primary</Button>{' '}
+      <Button color="secondary">secondary</Button>{' '}
+      <Button color="success">success</Button>{' '}
+      <Button color="info">info</Button>{' '}
+      <Button color="warning">warning</Button>{' '}
+      <Button color="danger">danger</Button>{' '}
+      <Button color="link">link</Button>
       </div>
     );
   }
