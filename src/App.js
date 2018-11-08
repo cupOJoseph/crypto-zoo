@@ -68,6 +68,12 @@ class App extends Component {
           </Collapse>
         </Navbar>
 
+        <div className="image"></div>
+
+        <div className="placeholder-info">
+          <h2>Test</h2>
+        </div>
+
       </div>
     );
   }
