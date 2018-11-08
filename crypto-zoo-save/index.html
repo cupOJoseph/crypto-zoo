@@ -1,0 +1,454 @@
+<html lang="">
+  <head>
+    <meta charSet="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>
+      My Landing Page
+    </title>
+    <meta name="description" content="This description shows when you share a link to your page on Facebook or Twitter."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Bevan|Open+Sans:400,600,700" rel="stylesheet"/>
+  </head>
+  <body>
+    <div style="font-family:&#x27;Open Sans&#x27;, Arial, serif;font-size:13px">
+      <header id="header" class="header">
+        <div class="wr" style="color:#fff;font-weight:400">
+          <a id="headerLogo" href="/" class="header__logo" style="font-weight:400">
+            Nifty Zoo
+          </a>
+          <nav id="headerNav" class="header__nav">
+            <a href="/pricing" class="btn btn--c btn--plain" style="color:rgba(255,255,255,1)">
+              Getting Started
+            </a>
+            <a href="" class="btn btn--c btn--plain" style="color:rgba(255,255,255,1)">
+              My Zoo
+            </a>
+            <a href="" class="btn btn--c btn--plain" style="color:rgba(255,255,255,1)">
+              National Zoo
+            </a>
+            <a href="" class="btn btn--c btn--plain" style="color:rgba(255,255,255,1)">
+              AirBus Heritage
+            </a>
+            <div class="header__navCtas">
+              <a href="/signup" class="btn btn--c btn--primary" style="color:rgba(255,51,102,1);background-color:rgba(255,255,255,1)">
+                Give
+              </a>
+            </div>
+          </nav>
+          <nav id="headerMenu" class="header__nav header__nav--hidden">
+            <button id="headerMenuButton" class="btn btn--c btn--primary" style="color:rgba(255,51,102,1);background-color:rgba(255,255,255,1)">
+              Menu
+            </button>
+          </nav>
+          <nav id="headerDrawer" class="headerMenu">
+            <div id="headerDrawerBackdrop" class="headerMenu__backdrop">
+            </div>
+            <ul class="headerMenu__links">
+              <li>
+                <a href="/pricing" class="btn btn--c btn--plain" style="color:rgba(255,255,255,1)">
+                  Getting Started
+                </a>
+              </li>
+              <li>
+                <a href="" class="btn btn--c btn--plain" style="color:rgba(255,255,255,1)">
+                  My Zoo
+                </a>
+              </li>
+              <li>
+                <a href="" class="btn btn--c btn--plain" style="color:rgba(255,255,255,1)">
+                  National Zoo
+                </a>
+              </li>
+              <li>
+                <a href="" class="btn btn--c btn--plain" style="color:rgba(255,255,255,1)">
+                  AirBus Heritage
+                </a>
+              </li>
+              <li>
+                <a href="/signup" class="btn btn--c btn--primary" style="color:rgba(255,51,102,1);background-color:rgba(255,255,255,1)">
+                  Give
+                </a>
+              </li>
+            </ul>
+            <button id="headerDrawerClose" class="headerMenu__close btn">
+              Close
+            </button>
+          </nav>
+        </div>
+        <script>
+          (function() {
+            var buffer = 10;
+            var margin = 60 + 40 + buffer;
+            // button
+            var button = document.getElementById('headerMenuButton');
+            var buttonWrapper = document.getElementById('headerMenu');
+            // drawer
+            var drawer = document.getElementById('headerDrawer');
+            var drawerBackdrop = document.getElementById('headerDrawerBackdrop');
+            var drawerClose = document.getElementById('headerDrawerClose');
+            // header UI
+            var logo = document.getElementById('headerLogo');
+            var nav = document.getElementById('headerNav');
+            var logoWidth = logo.offsetWidth;
+            var navWidth = nav.offsetWidth;
+
+            var determineVisibility = function() {
+              var parent = window.innerWidth;
+              if (logoWidth + navWidth > parent - margin) {
+                nav.classList.add('header__nav--hidden');
+                buttonWrapper.classList.add('headerMenu--visible');
+              } else {
+                nav.classList.remove('header__nav--hidden');
+                buttonWrapper.classList.remove('headerMenu--visible');
+              }
+            };
+
+            var showDrawer = function() {
+              drawer.classList.add('headerMenu--visible');
+            };
+
+            var hideDrawer = function() {
+              drawer.classList.remove('headerMenu--visible');
+            };
+
+            button.onclick = showDrawer;
+            drawerBackdrop.onclick = hideDrawer;
+            drawerClose.onclick = hideDrawer;
+
+            window.addEventListener('resize', determineVisibility);
+            determineVisibility();
+          })();
+        </script>
+      </header>
+      <div id="hero" class="section section--hero" style="background-image:url(assets/s3q44787.jpg?w=1300&amp;h=800&amp;q=50&amp;fit=crop)">
+        <div class="wr heroWr heroWr--left">
+          <div class="heroWrapper heroWrapper--left heroWrapper--pd">
+            <h1 class="hero__title" style="color:#fff;font-weight:400;font-family:&#x27;Bevan&#x27;, Georgia, serif">
+              Collect, Trade, &amp; Build a zoo of blockchain tokens
+            </h1>
+            <h2 class="hero__subtitle" style="color:#fff;font-weight:400">
+              100% of funds support the Smithsonian National Zoo.
+            </h2>
+            <div class="hero__ctas">
+              <a href="/login" class="btn btn--c btn--primary btn--large" style="color:rgba(255,51,102,1);background-color:rgba(255,255,255,1)">
+                Get Started
+              </a>
+              <a href="/signup" class="btn btn--c btn--secondary btn--large" style="color:rgba(255,255,255,1)">
+                Explore Animals
+              </a>
+            </div>
+          </div>
+          <div class="pd pd--right">
+            <img src="assets/c9wdlqnz.png?h=500&amp;fix=crop" class="pd__imgBox pd__imgBox--transparent"/>
+          </div>
+        </div>
+      </div>
+      <div id="features" class="section" style="background-color:rgba(245,245,245,1)">
+        <div class="wr">
+          <div class="features features--trio features--center">
+            <div class="feature">
+              <h3 class="feature__title" style="color:rgba(0,0,0,1);font-weight:600">
+                Collect
+              </h3>
+              <p class="feature__description" style="color:rgba(0,0,0,1);font-weight:400">
+               There’s a token for every animal at the Smithsonian National Zoo. Collect your favorites each time you make a donation.
+              </p>
+            </div>
+            <div class="feature">
+              <h3 class="feature__title" style="color:rgba(0,0,0,1);font-weight:600">
+                Trade
+              </h3>
+              <p class="feature__description" style="color:rgba(0,0,0,1);font-weight:400">
+                Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+              </p>
+            </div>
+            <div class="feature">
+              <h3 class="feature__title" style="color:rgba(0,0,0,1);font-weight:600">
+                Build
+              </h3>
+              <p class="feature__description" style="color:rgba(0,0,0,1);font-weight:400">
+                In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+              </p>
+            </div>
+            <div class="feature">
+              <h3 class="feature__title" style="color:rgba(0,0,0,1);font-weight:600">
+                Support
+              </h3>
+              <p class="feature__description" style="color:rgba(0,0,0,1);font-weight:400">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="zigzag" class="section" style="background-color:#fff">
+        <div class="wr">
+          <h2 class="section__title center standalone" style="color:rgba(0,0,0,1);font-weight:400;font-family:&#x27;Bevan&#x27;, Georgia, serif">
+            Start your collection
+          </h2>
+          <div class="zigzag">
+            <div class="zigzagItem zigzagItem--right">
+              <div class="zigzagItem__content">
+                <span class="zigzagItem__number" style="color:rgba(0,0,0,1);font-weight:400">
+                  #1
+                </span>
+                <h3 class="zigzagItem__title" style="color:rgba(0,0,0,1);font-weight:700">
+                  Step one
+                </h3>
+                <p class="zigzagItem__text" style="color:rgba(0,0,0,1);font-weight:400">
+                  Description for step 1.
+                </p>
+              </div>
+              <div class="zigzagItem__graphic">
+                <img src="https://assets.landen.co/1/appreciation_2_v4bt.svg" class="media media--image" srcSet="https://assets.landen.co/1/appreciation_2_v4bt.svg 2x"/>
+              </div>
+            </div>
+            <div class="zigzagItem zigzagItem--left">
+              <div class="zigzagItem__graphic">
+                <img src="https://assets.landen.co/1/country_side_ayop.svg" class="media media--image" srcSet="https://assets.landen.co/1/country_side_ayop.svg 2x"/>
+              </div>
+              <div class="zigzagItem__content">
+                <span class="zigzagItem__number" style="color:rgba(0,0,0,1);font-weight:400">
+                  #2
+                </span>
+                <h3 class="zigzagItem__title" style="color:rgba(0,0,0,1);font-weight:700">
+                  Step two
+                </h3>
+                <p class="zigzagItem__text" style="color:rgba(0,0,0,1);font-weight:400">
+                  Description for step 2.
+                </p>
+              </div>
+            </div>
+            <div class="zigzagItem zigzagItem--right">
+              <div class="zigzagItem__content">
+                <span class="zigzagItem__number" style="color:rgba(0,0,0,1);font-weight:400">
+                  #3
+                </span>
+                <h3 class="zigzagItem__title" style="color:rgba(0,0,0,1);font-weight:700">
+                  Step three
+                </h3>
+                <p class="zigzagItem__text" style="color:rgba(0,0,0,1);font-weight:400">
+                  Description for step 3.
+                </p>
+                <a href="/start" class="btn btn--c btn--primary" style="color:rgba(255,51,102,1);background-color:rgba(255,255,255,1)">
+                  Get Started
+                </a>
+              </div>
+              <div class="zigzagItem__graphic">
+                <img src="https://landen.imgix.net/defaults/undraw/makeitrain.svg" class="media media--image" srcSet="https://landen.imgix.net/defaults/undraw/makeitrain.svg 2x"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="pricing" class="section" style="background-color:rgba(245,245,245,1)">
+        <div class="wr">
+          <h2 class="section__title center" style="color:rgba(0,0,0,1);font-weight:400;font-family:&#x27;Bevan&#x27;, Georgia, serif">
+            Support with ETh or Card
+          </h2>
+          <h3 class="section__subtitle center" style="color:rgba(0,0,0,1);font-weight:400">
+            Always know what you&#x27;ll Pay
+          </h3>
+          <div class="pricing">
+            <div class="pricingTiers">
+              <div class="pricingTierWrapper">
+                <div class="pricingTier">
+                  <h3 class="pricingTier__title" style="color:rgba(0,0,0,1);font-weight:600">
+                    Buy with ETH
+                  </h3>
+                  <p class="pricingTier__description" style="color:rgba(0,0,0,1);font-weight:400">
+                    The native currency of the Ethereum Blockchain
+                  </p>
+                  <div class="pricingTier__price">
+                    <span class="price" style="color:rgba(0,0,0,1);font-weight:400">
+                      Ξ.05
+                    </span>
+                  </div>
+                  <ul class="pricingTier__features">
+                    <li style="color:rgba(0,0,0,1);font-weight:400">
+                      <svg width="21px" height="17px" viewBox="0 0 21 17" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g id="ui-icons" transform="translate(-109.000000, -67.000000)" fill="#22BC66">
+                            <polygon id="check" points="108.994099 76.4000626 115.987848 83.419577 129.407253 69.9978283 126.587674 67.1592372 115.987848 77.7490936 111.827057 73.5894775">
+                            </polygon>
+                          </g>
+                        </g>
+                      </svg>
+                       feature
+                    </li>
+                    <li style="color:rgba(0,0,0,1);font-weight:400">
+                      <svg width="21px" height="17px" viewBox="0 0 21 17" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g id="ui-icons" transform="translate(-109.000000, -67.000000)" fill="#22BC66">
+                            <polygon id="check" points="108.994099 76.4000626 115.987848 83.419577 129.407253 69.9978283 126.587674 67.1592372 115.987848 77.7490936 111.827057 73.5894775">
+                            </polygon>
+                          </g>
+                        </g>
+                      </svg>
+                       feature
+                    </li>
+                    <li style="color:rgba(0,0,0,1);font-weight:400">
+                      <svg width="21px" height="17px" viewBox="0 0 21 17" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g id="ui-icons" transform="translate(-109.000000, -67.000000)" fill="#22BC66">
+                            <polygon id="check" points="108.994099 76.4000626 115.987848 83.419577 129.407253 69.9978283 126.587674 67.1592372 115.987848 77.7490936 111.827057 73.5894775">
+                            </polygon>
+                          </g>
+                        </g>
+                      </svg>
+                       feature
+                    </li>
+                  </ul>
+                  <a href="/start" class="btn btn--c btn--primary" style="color:rgba(255,51,102,1);background-color:rgba(255,255,255,1)">
+                    Sign Up
+                  </a>
+                </div>
+              </div>
+              <div class="pricingTierWrapper">
+                <div class="pricingTier">
+                  <h3 class="pricingTier__title" style="color:rgba(0,0,0,1);font-weight:600">
+                    Buy with card
+                  </h3>
+                  <p class="pricingTier__description" style="color:rgba(0,0,0,1);font-weight:400">
+                    More info about tier 2.
+                  </p>
+                  <div class="pricingTier__price">
+                    <span class="price" style="color:rgba(0,0,0,1);font-weight:400">
+                      $10
+                    </span>
+                  </div>
+                  <ul class="pricingTier__features">
+                    <li style="color:rgba(0,0,0,1);font-weight:400">
+                      <svg width="21px" height="17px" viewBox="0 0 21 17" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g id="ui-icons" transform="translate(-109.000000, -67.000000)" fill="#22BC66">
+                            <polygon id="check" points="108.994099 76.4000626 115.987848 83.419577 129.407253 69.9978283 126.587674 67.1592372 115.987848 77.7490936 111.827057 73.5894775">
+                            </polygon>
+                          </g>
+                        </g>
+                      </svg>
+                       You will have to wait a bit to get your token
+                    </li>
+                    <li style="color:rgba(0,0,0,1);font-weight:400">
+                      <svg width="21px" height="17px" viewBox="0 0 21 17" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g id="ui-icons" transform="translate(-109.000000, -67.000000)" fill="#22BC66">
+                            <polygon id="check" points="108.994099 76.4000626 115.987848 83.419577 129.407253 69.9978283 126.587674 67.1592372 115.987848 77.7490936 111.827057 73.5894775">
+                            </polygon>
+                          </g>
+                        </g>
+                      </svg>
+                       You will get a confirmation
+                    </li>
+                    <li style="color:rgba(0,0,0,1);font-weight:400">
+                      <svg width="21px" height="17px" viewBox="0 0 21 17" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g id="ui-icons" transform="translate(-109.000000, -67.000000)" fill="#22BC66">
+                            <polygon id="check" points="108.994099 76.4000626 115.987848 83.419577 129.407253 69.9978283 126.587674 67.1592372 115.987848 77.7490936 111.827057 73.5894775">
+                            </polygon>
+                          </g>
+                        </g>
+                      </svg>
+                       feature
+                    </li>
+                  </ul>
+                  <a href="/start" class="btn btn--c btn--primary" style="color:rgba(255,51,102,1);background-color:rgba(255,255,255,1)">
+                    Sign Up
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="faq" class="section" style="background-color:rgba(245,245,245,1)">
+        <div class="wr">
+          <h2 class="section__title center standalone" style="color:rgba(0,0,0,1);font-weight:400;font-family:&#x27;Bevan&#x27;, Georgia, serif">
+            FAQ
+          </h2>
+          <div class="faq">
+            <div class="faqItem">
+              <h3 class="faqItem__question" style="color:rgba(0,0,0,1);font-weight:700">
+                Question one?
+              </h3>
+              <p class="faqItem__answer" style="color:rgba(0,0,0,1);font-weight:400">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              </p>
+            </div>
+            <div class="faqItem">
+              <h3 class="faqItem__question" style="color:rgba(0,0,0,1);font-weight:700">
+                Question two?
+              </h3>
+              <p class="faqItem__answer" style="color:rgba(0,0,0,1);font-weight:400">
+                Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+              </p>
+            </div>
+            <div class="faqItem">
+              <h3 class="faqItem__question" style="color:rgba(0,0,0,1);font-weight:700">
+                Question three?
+              </h3>
+              <p class="faqItem__answer" style="color:rgba(0,0,0,1);font-weight:400">
+                In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+              </p>
+            </div>
+            <div class="faqItem">
+              <h3 class="faqItem__question" style="color:rgba(0,0,0,1);font-weight:700">
+                Question four?
+              </h3>
+              <p class="faqItem__answer" style="color:rgba(0,0,0,1);font-weight:400">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="cta" class="section section--cta  section--center" style="background-color:rgba(255,51,102,1)">
+        <div class="wr">
+          <div class="cta__titles">
+            <h2 class="section__title center standalone" style="color:#fff;font-weight:400;font-family:&#x27;Bevan&#x27;, Georgia, serif">
+              Ready to get started?
+            </h2>
+          </div>
+          <div class="cta__ctas">
+            <a href="/login" class="btn btn--c btn--primary btn--large" style="color:rgba(255,51,102,1);background-color:rgba(255,255,255,1)">
+              Get Started
+            </a>
+            <a href="/contact" class="btn btn--c btn--secondary btn--large" style="color:rgba(255,255,255,1)">
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+      <footer id="footer" class="section section--footer" style="background-color:rgba(17,17,17,1)">
+        <div class="wr">
+          <div class="footer" style="color:#fff;font-weight:400">
+            <div class="footer__primary">
+              <span>
+                © 2019 My Company
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      (function() {
+        // smooth scrolling to all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+
+              document.querySelector(this.getAttribute('href')).scrollIntoView({
+                  behavior: 'smooth'
+              });
+          });
+      });
+      })();
+    </script>
+    <script>
+      "use strict";function polyfill(){var o=window,l=document;if(!("scrollBehavior"in l.documentElement.style&&!0!==o.__forceSmoothScrollPolyfill__)){var t,e=o.HTMLElement||o.Element,r=468,i={scroll:o.scroll||o.scrollTo,scrollBy:o.scrollBy,elementScroll:e.prototype.scroll||n,scrollIntoView:e.prototype.scrollIntoView},s=o.performance&&o.performance.now?o.performance.now.bind(o.performance):Date.now,c=(t=o.navigator.userAgent,new RegExp(["MSIE ","Trident/","Edge/"].join("|")).test(t)?1:0);o.scroll=o.scrollTo=function(){void 0!==arguments[0]&&(!0!==f(arguments[0])?h.call(o,l.body,void 0!==arguments[0].left?~~arguments[0].left:o.scrollX||o.pageXOffset,void 0!==arguments[0].top?~~arguments[0].top:o.scrollY||o.pageYOffset):i.scroll.call(o,void 0!==arguments[0].left?arguments[0].left:"object"!=typeof arguments[0]?arguments[0]:o.scrollX||o.pageXOffset,void 0!==arguments[0].top?arguments[0].top:void 0!==arguments[1]?arguments[1]:o.scrollY||o.pageYOffset))},o.scrollBy=function(){void 0!==arguments[0]&&(f(arguments[0])?i.scrollBy.call(o,void 0!==arguments[0].left?arguments[0].left:"object"!=typeof arguments[0]?arguments[0]:0,void 0!==arguments[0].top?arguments[0].top:void 0!==arguments[1]?arguments[1]:0):h.call(o,l.body,~~arguments[0].left+(o.scrollX||o.pageXOffset),~~arguments[0].top+(o.scrollY||o.pageYOffset)))},e.prototype.scroll=e.prototype.scrollTo=function(){if(void 0!==arguments[0])if(!0!==f(arguments[0])){var o=arguments[0].left,l=arguments[0].top;h.call(this,this,void 0===o?this.scrollLeft:~~o,void 0===l?this.scrollTop:~~l)}else{if("number"==typeof arguments[0]&&void 0===arguments[1])throw new SyntaxError("Value could not be converted");i.elementScroll.call(this,void 0!==arguments[0].left?~~arguments[0].left:"object"!=typeof arguments[0]?~~arguments[0]:this.scrollLeft,void 0!==arguments[0].top?~~arguments[0].top:void 0!==arguments[1]?~~arguments[1]:this.scrollTop)}},e.prototype.scrollBy=function(){void 0!==arguments[0]&&(!0!==f(arguments[0])?this.scroll({left:~~arguments[0].left+this.scrollLeft,top:~~arguments[0].top+this.scrollTop,behavior:arguments[0].behavior}):i.elementScroll.call(this,void 0!==arguments[0].left?~~arguments[0].left+this.scrollLeft:~~arguments[0]+this.scrollLeft,void 0!==arguments[0].top?~~arguments[0].top+this.scrollTop:~~arguments[1]+this.scrollTop))},e.prototype.scrollIntoView=function(){if(!0!==f(arguments[0])){var t=function(o){var t,e,r,i;do{t=(o=o.parentNode)===l.body}while(!1===t&&!1===(r=p(e=o,"Y")&&a(e,"Y"),i=p(e,"X")&&a(e,"X"),r||i));return t=null,o}(this),e=t.getBoundingClientRect(),r=this.getBoundingClientRect();t!==l.body?(h.call(this,t,t.scrollLeft+r.left-e.left,t.scrollTop+r.top-e.top),"fixed"!==o.getComputedStyle(t).position&&o.scrollBy({left:e.left,top:e.top,behavior:"smooth"})):o.scrollBy({left:r.left,top:r.top,behavior:"smooth"})}else i.scrollIntoView.call(this,void 0===arguments[0]||arguments[0])}}function n(o,l){this.scrollLeft=o,this.scrollTop=l}function f(o){if(null===o||"object"!=typeof o||void 0===o.behavior||"auto"===o.behavior||"instant"===o.behavior)return!0;if("object"==typeof o&&"smooth"===o.behavior)return!1;throw new TypeError("behavior member of ScrollOptions "+o.behavior+" is not a valid value for enumeration ScrollBehavior.")}function p(o,l){return"Y"===l?o.clientHeight+c<o.scrollHeight:"X"===l?o.clientWidth+c<o.scrollWidth:void 0}function a(l,t){var e=o.getComputedStyle(l,null)["overflow"+t];return"auto"===e||"scroll"===e}function d(l){var t,e,i,c,n=(s()-l.startTime)/r;c=n=n>1?1:n,t=.5*(1-Math.cos(Math.PI*c)),e=l.startX+(l.x-l.startX)*t,i=l.startY+(l.y-l.startY)*t,l.method.call(l.scrollable,e,i),e===l.x&&i===l.y||o.requestAnimationFrame(d.bind(o,l))}function h(t,e,r){var c,f,p,a,h=s();t===l.body?(c=o,f=o.scrollX||o.pageXOffset,p=o.scrollY||o.pageYOffset,a=i.scroll):(c=t,f=t.scrollLeft,p=t.scrollTop,a=n),d({scrollable:c,method:a,startTime:h,startX:f,startY:p,x:e,y:r})}}"object"==typeof exports&&"undefined"!=typeof module?module.exports={polyfill:polyfill}:polyfill();
+    </script>
+  </body>
+</html>
