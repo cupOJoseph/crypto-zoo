@@ -1,4 +1,4 @@
-# nifty-zoo-landing1
+# nifty-zoo
 
 ## Available Scripts
 
