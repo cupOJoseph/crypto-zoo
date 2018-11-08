@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import {
   Collapse,
@@ -13,7 +14,7 @@ import {
   DropdownMenu,
   DropdownItem } from 'reactstrap';
 
-import './App.css';
+import './style.css';
 
 class App extends Component {
   constructor(props) {
