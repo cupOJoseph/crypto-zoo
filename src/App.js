@@ -1,19 +1,73 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
+
   render() {
     return (
       <div className="App">
-      <Button color="primary">primary</Button>{' '}
-      <Button color="secondary">secondary</Button>{' '}
-      <Button color="success">success</Button>{' '}
-      <Button color="info">info</Button>{' '}
-      <Button color="warning">warning</Button>{' '}
-      <Button color="danger">danger</Button>{' '}
-      <Button color="link">link</Button>
+      <Navbar className="navbar" color="light" light expand="md">
+          <NavbarBrand href="/">Nifty Zoo</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/">Getting Started</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="">National Zoo</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="">Airbus Heritage</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="">Give</NavLink>
+              </NavItem>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  My Zoo
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                    Option 1
+                  </DropdownItem>
+                  <DropdownItem>
+                    Option 2
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Collapse>
+        </Navbar>
+
       </div>
     );
   }
