@@ -1,0 +1,11 @@
+.image {
+   background-color: #490D40;
+   background: url('../../assets/s3q44787.jpg') no-repeat center center;
+   background-size: cover;
+   height: 570px;
+   margin-top: -20px;
+}
+
+.placeholder-info {
+  background-color: rgba(245,245,245,1);
+}
