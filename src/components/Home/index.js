@@ -31,9 +31,6 @@ class App extends Component {
       isOpen: !this.state.isOpen
     })
   }
-// <NavLink href="/">Getting Started</NavLink>
-  // <li><Link to="/">Home</Link></li>
-  // <li><Link to="/profile">Profiles</Link></li>
 
   render() {
     return (
@@ -44,7 +41,7 @@ class App extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink><Link to="/profile">Profile</Link></NavLink>
+                <NavLink href="/profile">Profile</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="">National Zoo</NavLink>
