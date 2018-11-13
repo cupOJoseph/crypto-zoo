@@ -71,7 +71,6 @@ class App extends Component {
         <div className="image"></div>
 
         <div className="placeholder-info">
-          <h2>About</h2>
         </div>
 
       </div>
