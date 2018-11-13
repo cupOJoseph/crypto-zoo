@@ -1,80 +1,67 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import Home from '../Home/';
+import Profile from '../Profile';
+import Zoo from '../Zoo';
+import Airbus from '../Airbus';
+import Give from '../Give';
 
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+} from 'reactstrap';
 
-import './style.css';
+const HomeRoute = () => (
+  <Home/>
+);
+
+const ProfileRoute = () => (
+  <Profile/>
+);
+
+const ZooRoute = () => (
+  <Zoo/>
+);
+
+const GiveRoute = () => (
+  <Give/>
+);
+
+const AirbusRoute = () => (
+  <Airbus/>
+);
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
-
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    })
-  }
-
   render() {
     return (
-      <div className="App">
+      <div>
+
       <Navbar className="navbar" color="light" light expand="md">
           <NavbarBrand href="/">Nifty Zoo</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/">Getting Started</NavLink>
+                <NavLink href="/national-zoo">National Zoo</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="">National Zoo</NavLink>
+                <NavLink href="/airbus">Airbus Heritage</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="">Airbus Heritage</NavLink>
+                <NavLink href="/give">Give</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="">Give</NavLink>
+                <NavLink href="/profile">My Zoo</NavLink>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  My Zoo
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
             </Nav>
-          </Collapse>
         </Navbar>
 
-        <div className="image"></div>
-
-        <div className="placeholder-info">
-          <h2>About</h2>
-        </div>
-
+        <Route path="/" exact component={HomeRoute}/>
+        <Route path="/profile" exact component={ProfileRoute}/>
+        <Route path="/national-zoo" exact component={ZooRoute}/>
+        <Route path="/airbus" exact component={AirbusRoute}/>
+        <Route path="/give" exact component={GiveRoute}/>
       </div>
     );
   }
