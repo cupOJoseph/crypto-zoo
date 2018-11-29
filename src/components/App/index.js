@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Home from '../Home/';
 import Profile from '../Profile';
-import Zoo from '../Zoo';
+import Muttville from '../Muttville';
 import Airbus from '../Airbus';
 import Give from '../Give';
+
+import './style.css';
 
 import {
   Navbar,
@@ -22,8 +24,8 @@ const ProfileRoute = () => (
   <Profile/>
 );
 
-const ZooRoute = () => (
-  <Zoo/>
+const MuttVilleRoute = () => (
+  <Muttville/>
 );
 
 const GiveRoute = () => (
@@ -39,27 +41,30 @@ class App extends Component {
     return (
       <div>
 
-      <Navbar className="navbar" color="light" light expand="md">
-          <NavbarBrand href="/">Nifty Zoo</NavbarBrand>
+      <Navbar className="navbar" className="custom-nav" expand="md">
+          <NavbarBrand href="/">Muttville FundRaiser</NavbarBrand>
             <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink href="/">Home</NavLink>
+            </NavItem>
               <NavItem>
-                <NavLink href="/national-zoo">National Zoo</NavLink>
+                <NavLink href="https://muttville.org/">MuttVille</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/airbus">Airbus Heritage</NavLink>
+                <NavLink href="https://www.airbus-sv.com/projects/8">Airbus Heritage</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/profile">Profile</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/give">Give</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/profile">My Zoo</NavLink>
               </NavItem>
             </Nav>
         </Navbar>
 
         <Route path="/" exact component={HomeRoute}/>
         <Route path="/profile" exact component={ProfileRoute}/>
-        <Route path="/national-zoo" exact component={ZooRoute}/>
+        <Route path="/muttville" exact component={MuttVilleRoute}/>
         <Route path="/airbus" exact component={AirbusRoute}/>
         <Route path="/give" exact component={GiveRoute}/>
       </div>

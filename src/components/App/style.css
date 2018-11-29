@@ -1,0 +1,16 @@
+.custom-nav {
+  background-color: #F7FBFE !important;
+}
+
+.custom-nav a {
+  color: #767676;
+  padding-left: 40px;
+}
+
+.navbar-nav {
+  padding-right: 30px;
+}
+
+.custom-nav a:hover {
+  color: gray;
+}
