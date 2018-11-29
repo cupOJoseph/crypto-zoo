@@ -1,5 +1,5 @@
 .custom-nav {
-  background-color: #F7FBFE !important;
+  background-color: #FBFDFF !important;
 }
 
 .custom-nav a {
@@ -13,4 +13,13 @@
 
 .custom-nav a:hover {
   color: gray;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: black;
+  font-family: 'Bevan', Georgia;
+}
+
+.hero-title {
+  font-weight: bold;
 }

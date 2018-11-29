@@ -1,11 +1,17 @@
+
+
 .image {
-   background-color: #490D40;
-   background: url('../../assets/dog-background-landing.jpg') no-repeat center center;
+   background-color: #FBFDFF;
+   background: url('../../assets/dog-landing.jpeg') no-repeat center center;
    background-size: cover;
-   height: 570px;
+   height: 700px;
+   opacity: 0.5;
    margin-top: -20px;
 }
 
-.placeholder-info {
-  background-color: rgba(245,245,245,1);
+.about {
+  background-color: white;
 }
+
+
+/* background-color: rgba(245,245,245,1); */
