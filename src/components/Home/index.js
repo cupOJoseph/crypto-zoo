@@ -40,7 +40,7 @@ class App extends Component {
               </Col>
               <Col sm={{ size: 4 }}>
                 <h5>Why Support Muttville?</h5>
-                <p>Every day, older dogs in good health with wonderful personalities are euthanized. Muttsville reaches out to senior and special needs rescue dogs.</p>
+                <p>Every day, older dogs in good health with wonderful personalities are euthanized. Muttville reaches out to senior and special needs rescue dogs.</p>
               </Col>
             </Row>
             <Row className="md-padding-top">
