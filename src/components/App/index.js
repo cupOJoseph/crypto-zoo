@@ -5,6 +5,7 @@ import Profile from '../Profile';
 import Muttville from '../Muttville';
 import Airbus from '../Airbus';
 import Give from '../Give';
+import { Button } from 'reactstrap';
 
 import './style.css';
 
@@ -36,12 +37,14 @@ const AirbusRoute = () => (
   <Airbus/>
 );
 
+// color="light" light
+
 class App extends Component {
   render() {
     return (
       <div>
 
-      <Navbar className="navbar" className="custom-nav" expand="md">
+      <Navbar className="navbar" expand="md">
           <NavbarBrand href="/">Muttville FundRaiser</NavbarBrand>
             <Nav className="ml-auto" navbar>
             <NavItem>
@@ -56,9 +59,7 @@ class App extends Component {
               <NavItem>
                 <NavLink href="/profile">Profile</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href="/give">Give</NavLink>
-              </NavItem>
+                <Button className="give-button" color="danger" href="/give">Give</Button>
             </Nav>
         </Navbar>
 
