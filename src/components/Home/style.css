@@ -9,6 +9,11 @@ body {
    margin-top: -20px;
 }
 
+.muttville-outline-color-button {
+  color: black !important;
+  border-color: black !important;
+}
+
 .padded-container {
   padding: 0% 5%;
 }
@@ -31,15 +36,17 @@ body {
 }
 
 .call-to-action-container {
-  background-color: #dc3545;
+  background-color: #FDBF15;
 }
 
 .footer {
+  background-color: #FDBF15;
   text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .footer h1 {
-  color: #dc3545;
   padding-bottom: 10px;
   font-family: 'Bevan';
 }

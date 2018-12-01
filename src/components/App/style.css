@@ -6,22 +6,37 @@
   margin-top: 2px;
   margin-bottom: 3px;
   margin-left: 7px;
+  background-color: #16C1DD !important;
+  border-color: #16C1DD !important;
+}
+
+.fundraiser-brand {
+  font-family: 'Bevan';
+}
+
+.give-button a {
+  color: white !important;
 }
 
 .navbar a {
-  color: white !important;
+  /* color: black !important; */
+}
+
+.btn-danger {
+  background-color: #16C1DD;
 }
 
 .navbar-brand {
   padding-left: 40px;
 }
 
-.navbar a:hover {
-  color: #DCDCDC !important;
-}
-
 .navbar-nav {
   padding-right: 30px;
+}
+
+.muttville-yellow-button {
+  background-color: #FDBF15 !important;
+  border-color: #FDBF15 !important;
 }
 
 .landing-info {

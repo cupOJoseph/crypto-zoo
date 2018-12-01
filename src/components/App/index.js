@@ -37,15 +37,13 @@ const AirbusRoute = () => (
   <Airbus/>
 );
 
-// color="light" light
-
 class App extends Component {
   render() {
     return (
       <div>
 
-      <Navbar className="navbar" expand="md">
-          <NavbarBrand href="/">Muttville FundRaiser</NavbarBrand>
+      <Navbar className="navbar" expand="md" color="light" light>
+          <NavbarBrand className="fundraiser-brand" href="/">Muttville Fundraiser</NavbarBrand>
             <Nav className="ml-auto" navbar>
             <NavItem>
               <NavLink href="/">Home</NavLink>

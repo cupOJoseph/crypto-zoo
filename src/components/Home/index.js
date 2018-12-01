@@ -13,7 +13,7 @@ class App extends Component {
           <div className="landing-info">
             <h1>Collect, Trade and Build your Collection of Pets</h1>
             <p className="hero-title">100% of funds support Muttville.</p>
-            <Button color="danger">Explore Pets</Button>{' '}
+            <Button className="muttville-yellow-button">Explore Pets</Button>{' '}
           </div>
         </div>
 
@@ -56,13 +56,9 @@ class App extends Component {
           </Container>
         </div>
 
-        <div class="call-to-action-container">
-          <CarouselComponent/>
-        </div>
-
-        <div class="footer white">
+        <div class="footer">
           <h1>Save a Dog Today</h1>
-          <Button outline color="danger">See Dogs</Button>
+          <Button outline className="muttville-outline-color-button">See Dogs</Button>
         </div>
       </div>
     );
