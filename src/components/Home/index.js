@@ -20,13 +20,14 @@ class App extends Component {
         <div className="gray">
         </div>
 
+        <div>
+
+        </div>
+
         <div className="white">
           <div className="padded-container">
-            <h3 className="center header">Start your Rescue Efforts</h3>
+            <h2 className="center header">Start your Rescue Efforts</h2>
 
-              <img src="https://assets.landen.co/1/appreciation_2_v4bt.svg" class="media media--image" srcSet="https://assets.landen.co/1/appreciation_2_v4bt.svg 2x"/>
-              <img src="https://assets.landen.co/1/country_side_ayop.svg" class="media media--image" srcSet="https://assets.landen.co/1/country_side_ayop.svg 2x"/>
-              <img src="https://landen.imgix.net/defaults/undraw/makeitrain.svg" class="media media--image" srcSet="https://landen.imgix.net/defaults/undraw/makeitrain.svg 2x"/>
           </div>
         </div>
 
