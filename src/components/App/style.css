@@ -10,6 +10,10 @@
   border-color: #16C1DD !important;
 }
 
+.fundraiser-brand-color {
+  background-color: black !important;
+}
+
 .fundraiser-brand {
   font-family: 'Bevan';
 }
@@ -19,7 +23,7 @@
 }
 
 .navbar a {
-  /* color: black !important; */
+  color: white !important;
 }
 
 .btn-danger {
