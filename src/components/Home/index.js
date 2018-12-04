@@ -8,7 +8,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
         <div className="image">
           <div className="landing-info">
             <h1>Collect, Trade and Build your Collection of Pets</h1>
@@ -19,11 +18,6 @@ class App extends Component {
 
         <div className="gray">
         </div>
-
-        <div>
-
-        </div>
-
         <div className="white">
           <div className="padded-container">
             <h2 className="center header">Start your Rescue Efforts</h2>
