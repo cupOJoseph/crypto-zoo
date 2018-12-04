@@ -1,13 +1,21 @@
-.container {
-  margin-left: 3% !important;
-  margin-top: 3%;
-}
-
 .card-donate-button {
   background-color: #16C1DD !important;
   border-color: #16C1DD !important;
 }
 
+.container {
+  margin: 3% !important;
+  margin-top: 0%;
+}
+
 .card {
   padding: 20px !important;
+}
+
+.token-card {
+  margin-top: 1%;
+}
+
+.card-description-text {
+  font-size: 14px;
 }

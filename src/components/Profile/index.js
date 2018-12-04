@@ -32,9 +32,8 @@ class App extends Component {
                     <CardImg top src={animal.image} alt="Card image cap" />
                     <CardBody>
                       <CardTitle>{animal.name}</CardTitle>
-                      <CardSubtitle>{animal.subtitle}</CardSubtitle>
+                      <CardSubtitle className="card-description-text">{animal.subtitle}</CardSubtitle>
                       <CardText>{animal.description}</CardText>
-                      <Button className="card-donate-button">Donate</Button>
                     </CardBody>
                   </Card>
                 </Col>
