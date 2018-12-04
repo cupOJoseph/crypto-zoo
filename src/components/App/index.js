@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Home from '../Home/';
 import Profile from '../Profile';
-import Zoo from '../Zoo';
+import Muttville from '../Muttville';
 import Airbus from '../Airbus';
 import Give from '../Give';
+import { Button } from 'reactstrap';
+
+import './style.css';
 
 import {
   Navbar,
@@ -22,8 +25,8 @@ const ProfileRoute = () => (
   <Profile/>
 );
 
-const ZooRoute = () => (
-  <Zoo/>
+const MuttVilleRoute = () => (
+  <Muttville/>
 );
 
 const GiveRoute = () => (
@@ -35,31 +38,35 @@ const AirbusRoute = () => (
 );
 
 class App extends Component {
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <div>
-
-      <Navbar className="navbar" color="light" light expand="md">
-          <NavbarBrand href="/">Nifty Zoo</NavbarBrand>
+      <Navbar className="navbar" className="fundraiser-brand-color" expand="md">
+          <NavbarBrand className="fundraiser-brand" href="/">Muttville Fundraiser</NavbarBrand>
             <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink href="/">Home</NavLink>
+            </NavItem>
               <NavItem>
-                <NavLink href="/national-zoo">National Zoo</NavLink>
+                <NavLink href="https://muttville.org/">MuttVille</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/airbus">Airbus Heritage</NavLink>
+                <NavLink href="https://www.airbus-sv.com/projects/8">Airbus Heritage</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/give">Give</NavLink>
+                <NavLink href="/profile">Profile</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href="/profile">My Zoo</NavLink>
-              </NavItem>
+                <Button className="give-button" color="danger" href="/give">Give</Button>
             </Nav>
         </Navbar>
 
         <Route path="/" exact component={HomeRoute}/>
         <Route path="/profile" exact component={ProfileRoute}/>
-        <Route path="/national-zoo" exact component={ZooRoute}/>
+        <Route path="/muttville" exact component={MuttVilleRoute}/>
         <Route path="/airbus" exact component={AirbusRoute}/>
         <Route path="/give" exact component={GiveRoute}/>
       </div>

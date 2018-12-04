@@ -1,0 +1,57 @@
+.navbar {
+  background-color: black !important;
+}
+
+.give-button {
+  margin-top: 2px;
+  margin-bottom: 3px;
+  margin-left: 7px;
+  background-color: #16C1DD !important;
+  border-color: #16C1DD !important;
+}
+
+.fundraiser-brand-color {
+  background-color: black !important;
+}
+
+.fundraiser-brand {
+  font-family: 'Bevan';
+  color: #FDBF15 !important;
+}
+
+.give-button a {
+  color: white !important;
+}
+
+.navbar a {
+  color: white !important;
+}
+
+.btn-danger {
+  background-color: #16C1DD;
+}
+
+.navbar-brand {
+  padding-left: 40px;
+}
+
+.navbar-nav {
+  padding-right: 30px;
+}
+
+.muttville-yellow-button {
+  background-color: #FDBF15 !important;
+  border-color: #FDBF15 !important;
+}
+
+.landing-info {
+  color: white;
+  padding-left: 3%;
+  padding-top: 18%;
+  max-width: 40%;
+  font-family: 'Bevan';
+}
+
+.hero-title {
+  font-family: 'Bevan';
+}

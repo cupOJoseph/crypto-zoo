@@ -1,0 +1,16 @@
+.container {
+  margin: 3% !important;
+  margin-top: 0%;
+}
+
+.card {
+  padding: 20px !important;
+}
+
+.token-card {
+  margin-top: 1%;
+}
+
+.card-description-text {
+  font-size: 14px;
+}

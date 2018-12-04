@@ -1,11 +1,71 @@
+body {
+  font-family: 'Bevan';
+}
+
 .image {
-   background-color: #490D40;
-   background: url('../../assets/s3q44787.jpg') no-repeat center center;
+   background: url('../../assets/golden-retriever.jpg') no-repeat center center;
    background-size: cover;
-   height: 570px;
+   height: 700px;
    margin-top: -20px;
 }
 
-.placeholder-info {
+.muttville-outline-color-button {
+  color: black !important;
+  border-color: black !important;
+}
+
+.padded-container {
+  padding: 0% 5%;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.faq-section {
+  padding-left: 18%;
+  font-size: 14px;
+}
+
+.md-padding-top {
+  padding-top: 30px;
+}
+
+.call-to-action-container {
+  background-color: #FDBF15;
+}
+
+.footer {
+  background-color: #FDBF15;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.footer h1 {
+  padding-bottom: 10px;
+  font-family: 'Bevan';
+}
+
+.gray {
   background-color: rgba(245,245,245,1);
+  padding: 5% 0 5% 0;
+}
+
+.white {
+  background-color: white;
+  padding: 5% 0 5% 0;
+}
+
+.center {
+  text-align: center;
+}
+
+.header {
+  font-family: 'Bevan', georgia, serif;
+  padding-bottom: 30px;
 }
