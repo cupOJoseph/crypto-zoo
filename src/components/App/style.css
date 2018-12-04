@@ -14,8 +14,7 @@
   background-color: black !important;
 }
 
-.fundraiser-brand {
-  font-family: 'Bevan';
+.fundraiser-brand a {
   color: #FDBF15 !important;
 }
 
