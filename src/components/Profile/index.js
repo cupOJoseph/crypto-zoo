@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+  CardTitle, CardSubtitle, Row, Col, Button } from 'reactstrap';
 
 class App extends Component {
   constructor(props) {
@@ -9,13 +9,13 @@ class App extends Component {
     this.state = {
       animals: [{
         name: 'Rover',
-        image: 'https://images.pexels.com/photos/8700/wall-animal-dog-pet.jpg?cs=srgb&dl=animal-collar-dog-8700.jpg&fm=jpg'
+        image: 'http://petmd.com/sites/default/files/pekingese-dog.jpg'
       }, {
         name: 'Sam',
-        image: 'https://images.pexels.com/photos/33287/dog-viszla-close.jpg?cs=srgb&dl=animal-photography-animals-close-up-33287.jpg&fm=jpg'
+        image: 'https://www.gannett-cdn.com/-mm-/d8427785073ef3bf0463f168465a2564fdd37ce8/c=160-0-1440-1280/local/-/media/USATODAY/USATODAY/2013/11/24//1385325676002-GAN-TALKING-DOG-112413-3.jpg?width=200&height=200&fit=crop'
       }, {
         name: 'Judy',
-        image: 'https://images.pexels.com/photos/460823/pexels-photo-460823.jpeg?cs=srgb&dl=animal-beagle-canine-460823.jpg&fm=jpg'
+        image: 'https://www.gannett-cdn.com/-mm-/f5e7476e511e59f9d0afe1c95bb1814272fbd5ca/c=0-80-480-560/local/-/media/2018/01/15/Phoenix/Phoenix/636516421787547649-maxthedog2.jpg?width=200&height=200&fit=crop'
       }]
     };
   }
@@ -25,16 +25,18 @@ class App extends Component {
       <div className="App">
         {this.state.animals.map(function(animal, i) {
             return <div key={ i }>
-              <Card>
-                <CardImg top width="100%" src={animal.image} width="200" alt="Card image cap" />
-                <CardBody>
-                  <CardTitle>{animal.name}</CardTitle>
-                  <CardSubtitle>Card subtitle</CardSubtitle>
-                  <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                <Col sm="3">
+                  <Card>
+                    <CardImg top src={animal.image} alt="Card image cap" />
+                    <CardBody>
+                      <CardTitle>{animal.name}</CardTitle>
+                      <CardSubtitle>Card subtitle</CardSubtitle>
+                      <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
 
-                  <Button>Button</Button>
-                </CardBody>
-              </Card>
+                      <Button>Button</Button>
+                    </CardBody>
+                  </Card>
+                </Col>
             </div>
         })}
       </div>
