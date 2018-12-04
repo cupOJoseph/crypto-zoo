@@ -23,9 +23,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Card>
         {this.state.animals.map(function(animal, i) {
-            return <Col sm="3" key={ i }>
-                  <Card>
+            return <Col sm="2" key={ i }>
                     <CardImg top src={animal.image} alt="Card image cap" />
                     <CardBody>
                       <CardTitle>{animal.name}</CardTitle>
@@ -34,9 +34,9 @@ class App extends Component {
 
                       <Button>Button</Button>
                     </CardBody>
-                  </Card>
                 </Col>
         })}
+        </Card>
       </div>
     );
   }
