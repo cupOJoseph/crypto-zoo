@@ -1,38 +1,26 @@
-# nifty-zoo
+Heritage Node API
+=================
 
-## Available Scripts
+# Docs
 
-In the project directory, you can run:
+## /api/contract
+returns the network and address of the deployed contract this api is using.
 
-### `npm start`
+## /api/
+returns a list of options, that you can use this API for.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## /api/user/<address>
+return a list of tokens that user owns, the number of tokens they own, their level of contribution
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## /api/token?id=<id number>
+returns the data associated with that token ID.
+Example: `/api/token?id=4` will return 
+```
+  {
+    "token_id": 4,
+    "fundraiser_id": 1,
+    "amount": 0.033,
+    "donor": "0xe4b420f15d6d878dcd0df7120ac0fc1509ee9cab",
+    "is_fundraiser": "FALSE"
+  }
+```
