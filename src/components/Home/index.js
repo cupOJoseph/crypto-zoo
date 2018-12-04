@@ -16,8 +16,6 @@ class App extends Component {
           </div>
         </div>
 
-        <div className="gray">
-        </div>
         <div className="white">
           <div className="padded-container">
             <h2 className="center header">Start your Rescue Efforts</h2>
