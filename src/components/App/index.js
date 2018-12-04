@@ -45,7 +45,7 @@ class App extends Component {
   render() {
     return (
       <div>
-      <Navbar className="navbar" className="fundraiser-brand-color" expand="md">
+      <Navbar className="navbar" className="fundraiser-brand-color fundraiser-brand" expand="md">
           <NavbarBrand className="fundraiser-brand" href="/">Muttville Fundraiser</NavbarBrand>
             <Nav className="ml-auto" navbar>
             <NavItem>
