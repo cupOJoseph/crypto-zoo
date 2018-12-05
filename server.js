@@ -6,12 +6,14 @@ const express = require('express');
 const app = express();
 const Web3 = require('web3');
 const parser = require("body-parser");
+var bodyParser = require('body-parser');
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
+var jsonParser = bodyParser.json()//I added this to parse the body
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/', function(request, response) {
@@ -34,6 +36,8 @@ const listener = app.listen(process.env.PORT, function() {
 });
 
 // =========================== API ============================== //
+
+
 var router = express.Router(); 
 app.use('/api', router);
 
@@ -82,9 +86,17 @@ router.route('/token').get( function(request, response) {
 //not using router for this.
 
 //console.log("address" + post_location);
-app.post('/' + process.env.loc, function(req, res) {
-    console.log(req.query);
+app.post('/' + process.env.loc, jsonParser, function(req, res) {
+
+  console.log("=======body:=========");
+  console.log(req.body);
+  console.log("=======raw=======");
+  console.log(req.body.events[0].raw);
+  console.log("=======ret values=======");
+  console.log(req.body.events[0].returnValues);
+  console.log("==============");
     
+  //TODO validate the resp has 
   
     res.json({ "status": 1 });   
 });
