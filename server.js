@@ -86,19 +86,48 @@ router.route('/token').get( function(request, response) {
 //not using router for this.
 
 //console.log("address" + post_location);
+//================Event Processor==================//
 app.post('/' + process.env.loc, jsonParser, function(req, res) {
 
-  console.log("=======body:=========");
-  console.log(req.body);
-  console.log("=======raw=======");
-  console.log(req.body.events[0].raw);
-  console.log("=======ret values=======");
-  console.log(req.body.events[0].returnValues);
-  console.log("==============");
-    
-  //TODO validate the resp has 
+  //console.log("=======body:=========");
+  //console.log(req.body);
+  //console.log("=======raw=======");
+ console.log(req.body.events);
   
-    res.json({ "status": 1 });   
+  //handle multiple events in 1 block
+  var events = req.body.events;
+  for(var event in events){ //event here is each full event
+    var type = event.event; //bad naming but what ever. 
+    
+    if(type = 'Transfer')
+         {
+           console.log("transfer event recieved");
+           console.log("=======ret values=======");
+           console.log(req.body.events[0].returnValues);
+           console.log("==============");
+
+          
+         }
+         else if(type == 'MakeDonation')
+         {
+           console.log("MakeDonation event recieved");
+           console.log("=======ret values=======");
+           console.log(req.body.events[0].returnValues);
+           console.log("==============");
+
+          
+         }else{
+           //event type unknown
+           res.json({ "status": "2", "error":"event type unknown" });
+         }
+     res.json({ "status": 1 });
+  }
+  
+  
+    
+  //TODO validate the resp has stuff we like
+  
+       
 });
 app.get('/' + process.env.loc, function(req, res) {
     //console.log(JSON.stringify(req));
