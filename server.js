@@ -91,36 +91,47 @@ app.post('/' + process.env.loc, jsonParser, function(req, res) {
 
   //console.log("=======body:=========");
   //console.log(req.body);
-  //console.log("=======raw=======");
- console.log(req.body.events);
+  //console.log("=======Events======");
+  // console.log(req.body.events);
+  //console.log("=============");
   
   //handle multiple events in 1 block
   var events = req.body.events;
-  for(var event in events){ //event here is each full event
+  for(var i in events){ //event here is each full event
+    var event = events[i];
+    
     var type = event.event; //bad naming but what ever. 
     
-    if(type = 'Transfer')
+    if(type == 'Transfer')
          {
+           
            console.log("transfer event recieved");
            console.log("=======ret values=======");
-           console.log(req.body.events[0].returnValues);
+           console.log(event.returnValues);
            console.log("==============");
-
+           
+           //update owner of that token for transfer.
+          var to = event.returnValues["1"];
+          var tokenID = event.returnValues["2"]
+          
+           
+           if(typeof(to) !== 'undefined' && typeof(tokenID) !== 'undefined'){console.log("transfer log is good.")}
           
          }
          else if(type == 'MakeDonation')
          {
+           
            console.log("MakeDonation event recieved");
            console.log("=======ret values=======");
-           console.log(req.body.events[0].returnValues);
+           console.log(event.returnValues);
            console.log("==============");
-
           
          }else{
            //event type unknown
            res.json({ "status": "2", "error":"event type unknown" });
          }
-     res.json({ "status": 1 });
+    
+     //res.json({ "status": 1 });
   }
   
   
