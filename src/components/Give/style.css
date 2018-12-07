@@ -14,3 +14,7 @@
 .card-description-text {
   font-size: 14px;
 }
+
+.card-donate-button {
+  background-color: #3ec0d6 !important;
+}

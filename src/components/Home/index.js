@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button, Container, Row, Col } from 'reactstrap';
-import CarouselComponent from '../CarouselComponent/index.js'
 
 import './style.css';
 
@@ -19,15 +18,57 @@ class App extends Component {
         <div className="white">
           <div className="padded-container">
             <h2 className="center header">Start your Rescue Efforts</h2>
-
+              <p>For over 10 years Muttville has helped senior dogs who were deemed “unadoptable”,
+              find loving homes. This year Muttville is collaborating with A-Cubed to offer a modernized
+              donation experience that allows users to donate in both traditional and cryptocurrency to
+              support their efforts in helping these sweet dogs find their forever homes. </p>
           </div>
         </div>
 
         <div className="gray">
+          <h2 className="center header">Get Started</h2>
+          <Row className="step-row">
+            <Col sm={{ size: 1, offset: 2 }}>
+              <img width="100" className="chrome-logo" src="chrome_icon.png"/>
+            </Col>
+            <Col className="step-description" sm="7">
+              <p><b>Step 1</b> Install Metamask Chrome, Firefox or Brave extension (if you’re donating using ETH)  or select “pay with a credit card” if you’re using traditional currency</p>
+            </Col>
+          </Row>
+
+          <Row className="step-row">
+            <Col sm={{ size: 1, offset: 2 }}>
+              <img width="90" className="eth-logo" src="eth_icon.png"/>
+            </Col>
+            <Col className="step-description" sm="7">
+              <p><b>Step 2</b> Donate</p>
+            </Col>
+          </Row>
+
+          <Row className="step-row">
+            <Col sm={{ size: 1, offset: 2 }}>
+              <img width="110" className="dog-logo" src="dog_icon.png"/>
+            </Col>
+            <Col className="step-description" sm="7">
+              <p><b>Step 3</b> Select an animal you’d like to base your unique animal tokens on and begin collecting</p>
+            </Col>
+          </Row>
+
+          <Row className="step-row">
+            <Col sm={{ size: 1, offset: 2 }}>
+              <img width="100" className="friend-logo" src="friend_icon.png"/>
+            </Col>
+            <Col className="step-description" sm="7">
+              <p><b>Step 4</b> Share with family and friends and start trading animal tokens while supporting Muttville’s rescue efforts</p>
+            </Col>
+          </Row>
+        </div>
+
+        <div className="white">
           <h1 className="center header">FAQ</h1>
           <Container className="faq-section">
             <Row>
-              <Col sm={{ size: 4, offset: 0 }}>
+              <Col sm={{ size: 4 }}>
                 <h5>Why support Muttville?</h5>
                 <p>Every day, older dogs in good health with wonderful personalities are euthanized. Muttville is working hard to change this by striving to care for and help senior and special needs dogs find loving homes.</p>
               </Col>
@@ -41,7 +82,7 @@ class App extends Component {
               </Col>
             </Row>
             <Row className="md-padding-top">
-              <Col sm={{ size: 4, offset: 0 }}>
+              <Col sm={{ size: 4 }}>
                 <h5>What is Metamask and how do I set it up? Are there any additional fees associated with this?</h5>
                 <p>Metamask helps our internet browser, like Chrome or Firefox, read from Ethereum’s blockchain.</p>
               </Col>

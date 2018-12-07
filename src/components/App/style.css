@@ -22,8 +22,17 @@
   color: white !important;
 }
 
+.give-button:hover {
+  background-color: #3ec0d6 !important;
+}
+
 .navbar a {
   color: white !important;
+}
+
+.step-row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .btn-danger {
@@ -41,6 +50,10 @@
 .muttville-yellow-button {
   background-color: #FDBF15 !important;
   border-color: #FDBF15 !important;
+}
+
+.muttville-yellow-button:hover {
+  background-color: #ffcd47 !important;
 }
 
 .landing-info {
