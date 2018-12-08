@@ -148,8 +148,15 @@ router.route('/user').get(function(request, response) {
   Tokenmodel.find({ owner: userAddress })
     .sort({ _id: -1 })
     .then(tokenArray => {
-      console.log(tokenArray);
-      response.send({ tokenArray });
+      if (tokenArray.length > 0) {
+        response.send({ tokenArray });
+      } else {
+        response.status(404).send(`User does not have any tokens`);
+      }
+    })
+    .catch(err => {
+      response.status(404).send(`User does not have any tokens`);
+      console.log(err.err);
     });
 });
 
