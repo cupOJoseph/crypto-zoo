@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Container, Row, Col } from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 import './style.css';
 
@@ -11,7 +12,9 @@ class App extends Component {
           <div className="landing-info">
             <h1>Collect, Trade and Build your Collection of Dog Tokens</h1>
             <p className="hero-title">100% of the proceeds go to Muttville Senior Dog Rescue.</p>
-            <Button className="muttville-yellow-button">Explore Pets</Button>{' '}
+            <Link to="/give">
+              <Button className="muttville-yellow-button">Explore Pets</Button>
+            </Link>
           </div>
         </div>
 
@@ -105,7 +108,9 @@ class App extends Component {
               <p>Look through our database of adorable dogs and select your own personalized dog token. This token is yours forever on the blockchain and a reminder of your support to Muttville’s rescue efforts!</p>
             </Col>
           </Row>
-          <Button outline className="muttville-outline-color-button">See Dogs</Button>
+          <Link to="/give">
+            <Button outline className="muttville-outline-color-button">See Dogs</Button>
+          </Link>
         </div>
       </div>
     );
