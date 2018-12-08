@@ -18,6 +18,9 @@ var Tokenmodel = mongoose.model('Tokenmodel', {
   },
   minter: {
     type: String
+  },
+  description: {
+    type: String
   }
 });
 
