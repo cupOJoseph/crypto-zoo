@@ -2,6 +2,7 @@ dependencies:
   bignumber: 1.1.0
   body-parser: 1.18.3
   express: 4.16.3
+  mongodb: 3.1.10
   mongoose: 5.3.13
   web3: 0.20.7
 packages:
@@ -631,5 +632,6 @@ specifiers:
   bignumber: ^1.1.0
   body-parser: ^1.18.3
   express: ^4.16.3
+  mongodb: ^3.1.10
   mongoose: ^5.3.13
   web3: ^0.20.7

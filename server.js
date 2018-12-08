@@ -7,6 +7,7 @@ const app = express();
 const Web3 = require('web3');
 const parser = require("body-parser");
 var bodyParser = require('body-parser');
+var mongodb = require('mongodb');
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -35,6 +36,9 @@ const listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
 
+//=========================== Mongo ============================= //
+var mongouri = 'mongodb://'+process.env.USER+':'+process.env.PASS+'@'+process.env.HOST+':'+process.env.mongoport+'/'+process.env.DB;
+//moved to when we need it, so connect is not inturupted later.
 // =========================== API ============================== //
 
 
@@ -69,8 +73,21 @@ var infura_endpoint = "https://rinkeby.infura.io/v3/8235d0efb49f4a8eaacdb0544078
 var token_json = [{"token_id": 0,"fundraiser_id": 0,"amount": 0,"donor": "0x0000000000000000000000000000000000000000","is_fundraiser": "TRUE"},{"token_id": 1,"fundraiser_id": 1,"amount": 0,"donor": "0x0000000000000000000000000000000000000000","is_fundraiser": "TRUE"},{"token_id": 2,"fundraiser_id": 1,"amount": 0.01,"donor": "0x5d2364ebcdfb5f64eea3600aad4c054d30900d82","is_fundraiser": "FALSE"},{"token_id": 3,"fundraiser_id": 1,"amount": 0.01,"donor": "0xe4b420f15d6d878dcd0df7120ac0fc1509ee9cab","is_fundraiser": "FALSE"},{"token_id": 4,"fundraiser_id": 1,"amount": 0.033,"donor": "0xe4b420f15d6d878dcd0df7120ac0fc1509ee9cab","is_fundraiser": "FALSE"}];
 
 //TODO return user info based on address
-router.route('/user').get(function(req, res) {
-    res.json({ "choices": ["contract", "user", "token"] });   
+router.route('/user').get(function(request, response) {
+    var userAddress = request.param('address');
+    console.log("getting data for " + userAddress);
+    var userdata = {};
+    var data;
+  
+    mongodb.MongoClient.connect(mongouri, { useNewUrlParser: true }, function(err, client) {//NOT RETURNING EXPECTED FIX!!!
+      if(err){response.json({ "error": "db client problem" }); } 
+      var db = client.db("the_zoo");
+      var collect = db.collection("tokenmodels");
+      data = collect.find({"owner":userAddress});
+    });
+  
+    console.log(data);
+    response.json(data);
 });
 
 //TODO return token info from ID
@@ -104,7 +121,6 @@ app.post('/' + process.env.loc, jsonParser, function(req, res) {
     
     if(type == 'Transfer')
          {
-           
            console.log("transfer event recieved");
            console.log("=======ret values=======");
            console.log(event.returnValues);
@@ -113,14 +129,11 @@ app.post('/' + process.env.loc, jsonParser, function(req, res) {
            //update owner of that token for transfer.
           var to = event.returnValues["1"];
           var tokenID = event.returnValues["2"]
-          
-           
-           if(typeof(to) !== 'undefined' && typeof(tokenID) !== 'undefined'){console.log("transfer log is good.")}
-          
+            
+          if(typeof(to) !== 'undefined' && typeof(tokenID) !== 'undefined'){console.log("transfer log is good.")}
          }
          else if(type == 'MakeDonation')
          {
-           
            console.log("MakeDonation event recieved");
            console.log("=======ret values=======");
            console.log(event.returnValues);
@@ -133,12 +146,9 @@ app.post('/' + process.env.loc, jsonParser, function(req, res) {
     
      //res.json({ "status": 1 });
   }
-  
-  
     
   //TODO validate the resp has stuff we like
-  
-       
+
 });
 app.get('/' + process.env.loc, function(req, res) {
     //console.log(JSON.stringify(req));
