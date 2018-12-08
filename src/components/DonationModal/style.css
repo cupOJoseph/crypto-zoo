@@ -1,0 +1,8 @@
+.muttville-donate-button {
+  background-color: #16C1DD !important;
+  border-color: #16C1DD !important;
+}
+
+.muttville-donate-button:hover {
+  background-color: #3ec0d6 !important;
+}
