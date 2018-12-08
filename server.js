@@ -6,6 +6,7 @@ const express = require('express');
 const app = express();
 const Web3 = require('web3');
 const parser = require('body-parser');
+const BigNumber = require('bignumber.js');
 var bodyParser = require('body-parser');
 var mongodb = require('mongodb');
 
@@ -22,7 +23,7 @@ app.use(express.static('public'));
 var jsonParser = bodyParser.json(); //I added this to parse the body
 
 // http://expressjs.com/en/starter/basic-routing.html
-app.get('/', function(request, response) {
+app.get('/' + process.env.loc, function(request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
@@ -175,47 +176,96 @@ router.route('/token').get(function(request, response) {
 
 //console.log("address" + post_location);
 //================Event Processor==================//
-app.post('/' + process.env.loc, jsonParser, function(req, res) {
+app.post('/', jsonParser, (req, res) => {
   //console.log("=======body:=========");
-  //console.log(req.body);
+  // console.log(req.body);
   //console.log("=======Events======");
   // console.log(req.body.events);
   //console.log("=============");
 
   //handle multiple events in 1 block
-  var events = req.body.events;
-  for (var i in events) {
-    //event here is each full event
-    var event = events[i];
+  try {
+    var events = req.body.events;
+    for (var i in events) {
+      //event here is each full event
+      var event = events[i];
 
-    var type = event.event; //bad naming but what ever.
+      var type = event.event; //bad naming but what ever.
 
-    if (type == 'Transfer') {
-      console.log('transfer event recieved');
-      console.log('=======ret values=======');
-      console.log(event.returnValues);
-      console.log('==============');
+      if (type == 'Transfer') {
+        console.log('transfer event recieved');
+        console.log('=======ret values=======');
+        console.log(event.returnValues);
+        console.log('==============');
 
-      //update owner of that token for transfer.
-      var to = event.returnValues['1'];
-      var tokenID = event.returnValues['2'];
+        // Solidity Event: Transfer (
+        // index_topic_1 address _from,
+        // index_topic_2 address _to,
+        // index_topic_3 uint256 _tokenId)
+        //update owner of that token for transfer.
+        var to = event.returnValues['1'];
+        var tokenID = event.returnValues['2'];
 
-      if (typeof to !== 'undefined' && typeof tokenID !== 'undefined') {
-        console.log('transfer log is good.');
+        Tokenmodel.findOneAndUpdate(
+          { TokenID: tokenID },
+          { $set: { owner: to } },
+          {
+            upsert: true,
+            new: true
+          },
+          function() {
+            console.log('Transfer complete.');
+          }
+        );
+
+        if (typeof to !== 'undefined' && typeof tokenID !== 'undefined') {
+          console.log('transfer log is good.');
+        }
+      } else if (type == 'MakeDonation') {
+        console.log('MakeDonation event recieved');
+        console.log('=======ret values=======');
+        console.log(event.returnValues);
+        console.log('==============');
+
+        // Solidity Event: MakeDonation(
+        //uint256 donationId,
+        //uint256 amount,
+        //address donor,
+        //address sender)
+        var tokenID = event.returnValues['0'];
+        var amount = event.returnValues['1'];
+        var to = event.returnValues['2'];
+        var sender = event.returnValues['3'];
+
+        value = new BigNumber(amount);
+        decimal = new BigNumber(10);
+        decimal = decimal.exponentiatedBy(-18);
+        value = value.multipliedBy(decimal);
+
+        Tokenmodel.findOneAndUpdate(
+          { TokenID: tokenID },
+          { $set: { owner: to, amount: value, minter: sender } },
+          {
+            upsert: true,
+            new: true
+          },
+          (err, token) => {
+            console.log('Donation complete.');
+            console.log(token);
+          }
+        ).catch(err => {
+          console.log(err);
+        });
+      } else {
+        //event type unknown
+        res.json({ status: '2', error: 'event type unknown' });
       }
-    } else if (type == 'MakeDonation') {
-      console.log('MakeDonation event recieved');
-      console.log('=======ret values=======');
-      console.log(event.returnValues);
-      console.log('==============');
-    } else {
-      //event type unknown
-      res.json({ status: '2', error: 'event type unknown' });
     }
-
-    //res.json({ "status": 1 });
+  } catch (err) {
+    console.log(err);
+    res.status(200).send();
   }
-
+  res.status(200).send();
   //TODO validate the resp has stuff we like
 });
 app.get('/' + process.env.loc, function(req, res) {

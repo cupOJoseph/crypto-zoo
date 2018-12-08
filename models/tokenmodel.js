@@ -15,6 +15,9 @@ var Tokenmodel = mongoose.model('Tokenmodel', {
   },
   is_fundraiser: {
     type: Boolean
+  },
+  minter: {
+    type: String
   }
 });
 
