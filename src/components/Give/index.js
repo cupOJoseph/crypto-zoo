@@ -91,10 +91,14 @@ class App extends Component {
                           <Modal.Title>{animal.name}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                          {animal.description}
+                          <form onSubmit={(e) => {self.sendFunds(e, self.props.fund)}}>
+                            <div>Name: <input type="number" name="fundDonation" value={self.state.fundDonation} onChange={(e) => self.setStateValues(e)} /></div>
+                            <div>Email Address: <input type="number" name="fundDonation" value={self.state.fundDonation} onChange={(e) => self.setStateValues(e)} /></div>
+                            <input type="submit" className="btn btn-secondary card-donate-button" / >
+                          </form>
                          </Modal.Body>
-                        <Modal.Footer>
-                          <Button className="card-donate-button">Buy Token</Button>
+                        <Modal.Footer className="modal-footer">
+                          This info is for use to issue tax receipts for Muttville.
                         </Modal.Footer>
                       </Modal>
                     </CardBody>

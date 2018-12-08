@@ -98,7 +98,7 @@ class App extends Component {
           </Container>
         </div>
 
-        <div class="footer">
+        <div className="footer">
           <h1>Save a Dog Today</h1>
           <Row className="call-to-action-row">
             <Col sm="12" md={{ size: 6, offset: 3 }}>
