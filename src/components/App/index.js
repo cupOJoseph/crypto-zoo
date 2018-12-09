@@ -46,7 +46,7 @@ class App extends Component {
     return (
       <div>
       <Navbar className="navbar" className="fundraiser-brand-color fundraiser-brand" expand="md">
-          <NavbarBrand className="fundraiser-brand" href="/">Muttville Fundraiser</NavbarBrand>
+          <NavbarBrand className="fundraiser-brand" href="/">Heritage</NavbarBrand>
             <Nav className="ml-auto" navbar>
             <NavItem>
               <NavLink href="/">Home</NavLink>
