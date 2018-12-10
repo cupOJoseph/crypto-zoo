@@ -34,3 +34,7 @@
 .modal-payment-options {
   text-align: center;
 }
+
+.modal-payment-options button, a {
+  margin-top: 10px;
+}
