@@ -21,9 +21,16 @@
 
 .modal-footer {
   justify-content: center !important;
-  color: white;
 }
 
 .modal-footer:hover {
-  background-color: #ffcd47 !important;
+  /* background-color: #ffcd47 !important; */
+}
+.errorMessage {
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #e06969;
+}
+.modal-payment-options {
+  text-align: center;
 }
