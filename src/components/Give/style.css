@@ -7,8 +7,20 @@
   padding: 20px !important;
 }
 
+.center-text {
+  text-align: center;
+}
+
+.card-body button {
+  margin-left: 25%;
+}
+
 .token-card {
   margin-top: 1%;
+}
+
+.token-card .card {
+  min-height: 500px;
 }
 
 .card-description-text {
