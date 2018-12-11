@@ -48,6 +48,8 @@ class App extends Component {
       accounts: []
     };
 
+    this.firebase = firebase.database().ref();
+
     this.hideDonateModal = this.hideDonateModal.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
   }
@@ -121,25 +123,41 @@ class App extends Component {
           heritageABI,
           heritageContractAddress
         );
-        heritage.methods
-          .makeDonation(donationId)
-          .send({
-            from: accounts[0],
-            value: web3.utils.toWei(donationAmount, 'ether')
-          })
-          .then(response => {
-            console.log('Metamask response' + response.toString());
-          })
-          .catch(err => {
-            this.setState({ errorMessage: noWeb3ErrorMessage });
-            // console.log(err);
-          });
+
+        this.sendDonaterInfo();
+
+        // heritage.methods
+        //   .makeDonation(donationId)
+        //   .send({
+        //     from: accounts[0],
+        //     value: web3.utils.toWei(donationAmount, 'ether')
+        //   })
+        //   .then(response => {
+        //     console.log('Metamask response' + response.toString());
+        //     this.sendDonaterInfo();
+        //   })
+        //   .catch(err => {
+        //     this.setState({ errorMessage: noWeb3ErrorMessage });
+        //     // console.log(err);
+        //   });
       }
     } catch (err) {
       this.setState({ errorMessage: noWeb3ErrorMessage });
       // console.log(err);
     }
   };
+
+  sendDonaterInfo() {
+    var email = this.state.donorEmail;
+    var name = this.state.donorName;
+
+    debugger;
+
+    this.firebase.push({
+      email,
+      name
+    })
+  }
 
   render() {
     var self = this;

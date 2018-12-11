@@ -1,7 +1,7 @@
 import firebase from 'firebase'
 
 var config = {
-  apiKey: "AIzaSyBUAagqBEWtudoTwt6mOJCgXY-ujxJZFcU",
+  apiKey: process.env.MUTTVILLE_KEY,
   authDomain: "heritage-muttville.firebaseapp.com",
   databaseURL: "https://heritage-muttville.firebaseio.com",
   projectId: "heritage-muttville",
