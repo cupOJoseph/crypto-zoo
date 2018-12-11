@@ -84,10 +84,6 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-      <div className="errorMessage">
-        {this.state.errorMessage}
-      </div>
-      {this.state.successMessage}
         <Row>
           {this.state.animals.map(function(animal, i) {
               var imgstring = "./dog" + animal.fundraiser_id + ".jpg";
