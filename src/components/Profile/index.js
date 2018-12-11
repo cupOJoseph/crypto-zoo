@@ -69,6 +69,7 @@ class App extends Component {
 
          let requestURL = 'https://heritage-api.glitch.me/api/user?address=' + account;
          fetch(requestURL, {
+            mode: 'no-cors',
             method: 'GET',
             headers:{
               'Access-Control-Allow-Origin': '*',
