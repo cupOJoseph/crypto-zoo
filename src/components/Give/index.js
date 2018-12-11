@@ -13,6 +13,7 @@ import {
 import { Modal } from 'react-bootstrap';
 import { Form } from 'semantic-ui-react';
 import './style.css';
+import firebase from '../../firebase.js'
 import web3 from '../web3';
 import heritageABI from '../heritageABI';
 const ethereumLogo = require('../../assets/ethereum.png');
