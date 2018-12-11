@@ -41,19 +41,19 @@ class App extends Component {
 
           <Row className="step-row">
             <Col sm={{ size: 1, offset: 2 }}>
-              <img width="90" className="eth-logo" src="eth_icon.png"/>
-            </Col>
-            <Col className="step-description" sm="7">
-              <p><b>Step 2</b> Donate</p>
+              <img width="110" className="dog-logo" src="dog_icon.png"/>
+              </Col>
+              <Col className="step-description" sm="7">
+              <p><b>Step 2</b> Select an animal you’d like to base your unique animal tokens on and begin collecting</p>
             </Col>
           </Row>
 
           <Row className="step-row">
             <Col sm={{ size: 1, offset: 2 }}>
-              <img width="110" className="dog-logo" src="dog_icon.png"/>
+              <img width="90" className="eth-logo" src="eth_icon.png"/>
             </Col>
             <Col className="step-description" sm="7">
-              <p><b>Step 3</b> Select an animal you’d like to base your unique animal tokens on and begin collecting</p>
+              <p><b>Step 3</b> Donate</p>
             </Col>
           </Row>
 
