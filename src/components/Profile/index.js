@@ -59,9 +59,11 @@ class App extends Component {
        if (!metamaskEnabled) {
          this.setState({ errorMessage: noWeb3WalletFound });
        } else {
-         let account = accounts[0];
+         let account = accounts[0].toUpperCase();
+         let requestURL = 'https://heritage-api.glitch.me/api/user?address=' + account;
 
-         fetch(`http://heritage-api.glitch.me/api/user?address=0xBD956622AEfCaF7c030E93F560D0f71867CD0d14`, {
+         debugger;
+         fetch(requestURL, {
             method: 'GET',
             headers:{
               'Access-Control-Allow-Origin': '*',
@@ -70,10 +72,18 @@ class App extends Component {
             }
           })
           .then(results => {
+            debugger;
+            // return results.json();
+            // debugger;
+            // var test2 = JSON.parse(results);
+            // debugger;
             return results.json();
+            // return JSON.stringify(results);
+            // return JSON.parse(results);
           }).then(data => {
+              // debugger;
               this.setState({animals: data.tokenArray});
-              debugger;
+              // debugger;
           })
        }
      } catch (err) {
