@@ -45,10 +45,13 @@ class App extends Component {
       //web3
       donationAmount: 0,
       metamaskEnabled: false,
-      accounts: []
+      accounts: [],
+      donorName: '',
+      donorEmail: '',
     };
 
     this.firebase = firebase.database().ref();
+    this.firebaseJs = firebase;
 
     this.hideDonateModal = this.hideDonateModal.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
@@ -56,7 +59,10 @@ class App extends Component {
 
   componentWillMount() {
     this.importDogTokenImages();
-    firebase.auth().signInAnonymously().catch(function(error) {
+    debugger;
+
+    this.firebaseJs.auth().signInAnonymously().catch(function(error) {
+      debugger;
       console.log(error);
     });
   }
@@ -151,15 +157,15 @@ class App extends Component {
   };
 
   sendDonaterInfo() {
-    // var email = this.state.donorEmail;
-    // var name = this.state.donorName;
+    var email = this.state.donorEmail;
+    var name = this.state.donorName;
 
     debugger;
 
-    // this.firebase.push({
-    //   email,
-    //   name
-    // })
+    this.firebase.push({
+      email,
+      name
+    })
   }
 
   render() {
