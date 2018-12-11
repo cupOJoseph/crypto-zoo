@@ -87,7 +87,7 @@ class App extends Component {
             <Row className="md-padding-top">
               <Col sm={{ size: 4 }}>
                 <h5>How does it work?</h5>
-                <p>When you make a donation, you can select a token representing a dog of your choice and our system will send funds directly to Muttville via Ethereum’s blockchain.</p>
+                <p>You'll select a token of your choice representing one of Muttville's dogs that you will own using our platform. When you select a token and donate, our system will send the funds directly to Muttville via Ethereum's Blockchain.</p>
               </Col>
               <Col sm={{ size: 4 }}>
                 <h5>If I pay with a credit card can I still receive a Mutt token?</h5>
