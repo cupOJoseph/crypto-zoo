@@ -56,6 +56,9 @@ class App extends Component {
 
   componentWillMount() {
     this.importDogTokenImages();
+    firebase.auth().signInAnonymously().catch(function(error) {
+      console.log(error);
+    });
   }
 
   componentDidMount = () => {
@@ -148,15 +151,15 @@ class App extends Component {
   };
 
   sendDonaterInfo() {
-    var email = this.state.donorEmail;
-    var name = this.state.donorName;
+    // var email = this.state.donorEmail;
+    // var name = this.state.donorName;
 
     debugger;
 
-    this.firebase.push({
-      email,
-      name
-    })
+    // this.firebase.push({
+    //   email,
+    //   name
+    // })
   }
 
   render() {
