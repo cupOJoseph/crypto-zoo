@@ -100,15 +100,15 @@ class App extends Component {
             </Row>
             <Row className="md-padding-top">
               <Col sm={{ size: 4 }}>
-                <h5></h5>
-                <p></p>
+                <h5>What are Mutt tokens?</h5>
+                <p>Each token is special non-fungible collectible, similar to a trading card. Our tokens are represented by a dog like the ones your donation are supporting, a unique description, and permanent proof of your donation stored on the Ethereum blockchain. Our tokens follow ERC-721.</p>
               </Col>
               <Col sm={{ size: 4 }}>
-                <h5></h5>
-                <p></p>
+                <h5>What’s ERC-721?</h5>
+                <p>It’s a programming standard for a popular type of collectable blockchain token, where each token is provably unique, tradable, and permanent. We use this standard to integrate more services with our tokens.</p>
               </Col>
               <Col sm={{ size: 4 }}>
-                <h5></h5>
+                <h5>Why is this fundraiser special?</h5>
                 <p></p>
               </Col>
             </Row>
