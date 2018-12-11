@@ -65,8 +65,8 @@ class App extends Component {
     var i = 1;
     while (i < 230) {
       var dog = {
-        name: `Dog Token ${i}`,
-        image: `tokenImg/dog${i}.jpg`
+        name: `Mutt #${i}`,
+        image: `dog${i}.jpg`
       }
       animals.push(dog);
       i++;
