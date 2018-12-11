@@ -94,7 +94,7 @@ class App extends Component {
 
               return <Col className="token-card" sm="3" key={ i }>
                   <Card>
-                    <CardTitle>Mutt #{animal.TokenID}</CardTitle>
+                    <CardTitle>#{animal.TokenID}</CardTitle>
                     <CardImg top src={imgstring} alt="Card image cap" />
                     <CardBody>
                       <CardText>{animal.description}</CardText>
