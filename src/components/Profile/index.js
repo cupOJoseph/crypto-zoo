@@ -60,9 +60,14 @@ class App extends Component {
          this.setState({ errorMessage: noWeb3WalletFound });
        } else {
          let account = accounts[0].toUpperCase();
-         let requestURL = 'https://heritage-api.glitch.me/api/user?address=' + account;
+        String.prototype.replaceAt=function(index, char) {
+          var a = this.split("");
+          a[index] = char;
+          return a.join("");
+        }
+        account = account.replaceAt(1, "x");
 
-         debugger;
+         let requestURL = 'https://heritage-api.glitch.me/api/user?address=' + account;
          fetch(requestURL, {
             method: 'GET',
             headers:{
@@ -80,8 +85,11 @@ class App extends Component {
             return results.json();
             // return JSON.stringify(results);
             // return JSON.parse(results);
+          }).then(function(jsonData) {
+            debugger;
+            return JSON.stringify(jsonData);
           }).then(data => {
-              // debugger;
+              debugger;
               this.setState({animals: data.tokenArray});
               // debugger;
           })
