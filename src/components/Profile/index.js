@@ -32,10 +32,6 @@ class App extends Component {
     this.enableWeb3();
   }
 
-  componentDidMount() {
-    this.getTokenList();
-  }
-
   enableWeb3 = () => {
     if (window.ethereum) {
       try {
@@ -43,7 +39,9 @@ class App extends Component {
           window.web3.eth.getAccounts((err, accounts) => {
             console.log('metamask enabled!');
             debugger;
-            this.setState({ metamaskEnabled: true, accounts });
+            this.setState({ metamaskEnabled: true, accounts }, () => {
+              this.getTokenList();
+            })
           });
         });
       } catch (e) {
@@ -58,17 +56,13 @@ class App extends Component {
       metamaskEnabled
     } = this.state;
 
-    debugger;
-
      try {
        if (!metamaskEnabled) {
-         debugger;
          this.setState({ errorMessage: noWeb3WalletFound });
        } else {
-         debugger;
          let account = accounts[0];
          debugger;
-         fetch(`https://heritage-api.glitch.me/api/user?address=${accounts}`)
+         fetch(`https://heritage-api.glitch.me/api/user?address=${account}`)
          .then(({ results }) => this.setState({ tokens: results }));
        }
      } catch (err) {
