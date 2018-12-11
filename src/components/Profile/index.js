@@ -38,7 +38,6 @@ class App extends Component {
         window.ethereum.enable().then(() => {
           window.web3.eth.getAccounts((err, accounts) => {
             console.log('metamask enabled!');
-            debugger;
             this.setState({ metamaskEnabled: true, accounts }, () => {
               this.getTokenList();
             })
@@ -61,9 +60,21 @@ class App extends Component {
          this.setState({ errorMessage: noWeb3WalletFound });
        } else {
          let account = accounts[0];
-         debugger;
-         fetch(`https://heritage-api.glitch.me/api/user?address=${account}`)
-         .then(({ results }) => this.setState({ tokens: results }));
+
+         fetch(`http://heritage-api.glitch.me/api/user?address=0xBD956622AEfCaF7c030E93F560D0f71867CD0d14`, {
+            method: 'GET',
+            headers:{
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Credentials':true,
+              'Access-Control-Allow-Methods':'POST, GET'
+            }
+          })
+          .then(results => {
+            return results.json();
+          }).then(data => {
+              this.setState({animals: data.tokenArray});
+              debugger;
+          })
        }
      } catch (err) {
        this.setState({ errorMessage: noWeb3ErrorMessage });
@@ -73,14 +84,19 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+      <div className="errorMessage">
+        {this.state.errorMessage}
+      </div>
+      {this.state.successMessage}
         <Row>
           {this.state.animals.map(function(animal, i) {
+              var imgstring = "./dog" + animal.fundraiser_id + ".jpg";
+
               return <Col className="token-card" sm="3" key={ i }>
                   <Card>
-                    <CardImg top src={animal.image} alt="Card image cap" />
+                    <CardTitle>Mutt #{animal.TokenID}</CardTitle>
+                    <CardImg top src={imgstring} alt="Card image cap" />
                     <CardBody>
-                      <CardTitle>{animal.name}</CardTitle>
-                      <CardSubtitle className="card-description-text">{animal.subtitle}</CardSubtitle>
                       <CardText>{animal.description}</CardText>
                     </CardBody>
                   </Card>
