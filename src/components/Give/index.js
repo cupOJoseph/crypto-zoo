@@ -127,17 +127,16 @@ class App extends Component {
     let {
       donationAmount,
       accounts,
-      activeDonateModal,
-      metamaskEnabled
+      metamaskEnabled,
     } = this.state;
-    const donationId = activeDonateModal;
+    let donationId;
 
-    if (animalId < 26) {
-      donationAmount = .25;
-    } else if (animalId < 101) {
-      donationAmount = .1;
+    if (animalId < '26') {
+      donationAmount = '.25';
+    } else if (animalId < '101') {
+      donationAmount = '.1';
     } else {
-      donationAmount = .05;
+      donationAmount = '.05';
     }
 
     try {
@@ -149,20 +148,24 @@ class App extends Component {
           heritageContractAddress
         );
 
-        heritage.methods
-          .makeDonation(donationId)
-          .send({
-            from: accounts[0],
-            value: web3.utils.toWei(donationAmount, 'ether')
-          })
-          .then(response => {
-            console.log('Metamask response' + response.toString());
-            this.sendDonaterInfo();
-          })
-          .catch(err => {
-            this.setState({ errorMessage: noWeb3ErrorMessage });
-            // console.log(err);
-          });
+        heritage.methods.getDonation(animalId).call().then((token) => {
+          donationId = token._originalDonationId;
+
+          heritage.methods
+            .makeDonation(donationId)
+            .send({
+              from: accounts[0],
+              value: web3.utils.toWei(donationAmount, 'ether')
+            })
+            .then(response => {
+              console.log('Metamask response' + response.toString());
+              this.sendDonaterInfo();
+            })
+            .catch(err => {
+              this.setState({ errorMessage: noWeb3ErrorMessage });
+              // console.log(err);
+            });
+        })
       }
     } catch (err) {
       this.setState({ errorMessage: noWeb3ErrorMessage });
