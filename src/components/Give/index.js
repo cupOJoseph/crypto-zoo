@@ -127,16 +127,16 @@ class App extends Component {
     let {
       donationAmount,
       accounts,
-      metamaskEnabled
+      metamaskEnabled,
     } = this.state;
     let donationId;
 
-    if (animalId < 26) {
-      donationAmount = .25;
-    } else if (animalId < 101) {
-      donationAmount = .1;
+    if (animalId < '26') {
+      donationAmount = '.25';
+    } else if (animalId < '101') {
+      donationAmount = '.1';
     } else {
-      donationAmount = .05;
+      donationAmount = '.05';
     }
 
     try {
@@ -149,9 +149,8 @@ class App extends Component {
         );
 
         heritage.methods.getDonation(animalId).call().then((token) => {
-          donationId = token._originalDonationId;
-
-          debugger
+          let originalDonation = token._originalDonationId;
+          donationId = Number(originalDonation);
 
           heritage.methods
             .makeDonation(donationId)
