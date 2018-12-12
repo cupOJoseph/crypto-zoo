@@ -160,7 +160,6 @@ class App extends Component {
             })
             .then(response => {
               console.log('Metamask response' + response.toString());
-              debugger;
               this.sendDonaterInfo();
             })
             .catch(err => {
