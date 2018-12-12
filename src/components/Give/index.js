@@ -44,7 +44,9 @@ class App extends Component {
       //web3
       donationAmount: 0,
       metamaskEnabled: false,
-      accounts: []
+      accounts: [],
+      donorName: '',
+      donorEmail: '',
     };
 
     this.hideDonateModal = this.hideDonateModal.bind(this);
@@ -64,9 +66,24 @@ class App extends Component {
 
     var i = 1;
     while (i < 230) {
+      let value, valueDesc;
+      if (i < 26) {
+        value = ".25Ξ";
+        valueDesc = 'Rare (1/100)'
+      } else if (i < 101) {
+        value = ".1Ξ";
+        valueDesc = "Uncommon (1/250)";
+      } else {
+        value = ".05Ξ"
+        valueDesc = "Common (1/500)";
+      }
+
       var dog = {
         name: `Mutt #${i}`,
-        image: `/dog${i}.jpg`
+        id: i,
+        image: `/dog${i}.jpg`,
+        muttValue: value,
+        muttDescription: valueDesc,
       }
       animals.push(dog);
       i++;
@@ -102,15 +119,22 @@ class App extends Component {
     }
   };
 
-  handleDonateETH = () => {
+  handleDonateETH = (animalId) => {
     let {
       donationAmount,
       accounts,
       activeDonateModal,
       metamaskEnabled
     } = this.state;
-    donationAmount = '0.1'; // ETH
     const donationId = activeDonateModal;
+
+    if (animalId < 26) {
+      donationAmount = .25;
+    } else if (animalId < 101) {
+      donationAmount = .1;
+    } else {
+      donationAmount = .05;
+    }
 
     try {
       if (!metamaskEnabled) {
@@ -153,6 +177,8 @@ class App extends Component {
                   <CardImg top src={animal.image} alt="Card image cap" />
                   <CardBody>
                     <CardTitle className="center-text">{animal.name}</CardTitle>
+                    <CardSubtitle className="center-text">{animal.muttValue}</CardSubtitle>
+                    <CardText className="center-text">{animal.muttDescription}</CardText>
                     <Button
                       onClick={e => self.clickHandler(e, i)}
                       className="card-donate-button"
@@ -209,7 +235,7 @@ class App extends Component {
                                     errorMessage:
                                       'Please enter your name and email.'
                                   });
-                                } else self.handleDonateETH();
+                                } else self.handleDonateETH(animal.id);
                               }}
                             >
                               Donate with ETH
