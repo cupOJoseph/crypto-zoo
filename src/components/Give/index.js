@@ -59,12 +59,6 @@ class App extends Component {
 
   componentWillMount() {
     this.importDogTokenImages();
-    debugger;
-
-    this.firebaseJs.auth().signInAnonymously().catch(function(error) {
-      debugger;
-      console.log(error);
-    });
   }
 
   componentDidMount = () => {
