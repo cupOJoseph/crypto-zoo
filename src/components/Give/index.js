@@ -13,6 +13,7 @@ import {
 import { Modal } from 'react-bootstrap';
 import { Form } from 'semantic-ui-react';
 import './style.css';
+import firebase from '../../firebase.js'
 import web3 from '../web3';
 import heritageABI from '../heritageABI';
 const ethereumLogo = require('../../assets/ethereum.png');
@@ -48,6 +49,9 @@ class App extends Component {
       donorName: '',
       donorEmail: '',
     };
+
+    this.firebase = firebase.database().ref();
+    this.firebaseJs = firebase;
 
     this.hideDonateModal = this.hideDonateModal.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
@@ -144,6 +148,7 @@ class App extends Component {
           heritageABI,
           heritageContractAddress
         );
+
         heritage.methods
           .makeDonation(donationId)
           .send({
@@ -152,6 +157,7 @@ class App extends Component {
           })
           .then(response => {
             console.log('Metamask response' + response.toString());
+            this.sendDonaterInfo();
           })
           .catch(err => {
             this.setState({ errorMessage: noWeb3ErrorMessage });
@@ -163,6 +169,16 @@ class App extends Component {
       // console.log(err);
     }
   };
+
+  sendDonaterInfo() {
+    var email = this.state.donorEmail;
+    var name = this.state.donorName;
+
+    this.firebase.push({
+      email,
+      name
+    })
+  }
 
   render() {
     var self = this;
