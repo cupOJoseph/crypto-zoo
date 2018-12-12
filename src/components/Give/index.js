@@ -133,22 +133,20 @@ class App extends Component {
           heritageContractAddress
         );
 
-        this.sendDonaterInfo();
-
-        // heritage.methods
-        //   .makeDonation(donationId)
-        //   .send({
-        //     from: accounts[0],
-        //     value: web3.utils.toWei(donationAmount, 'ether')
-        //   })
-        //   .then(response => {
-        //     console.log('Metamask response' + response.toString());
-        //     this.sendDonaterInfo();
-        //   })
-        //   .catch(err => {
-        //     this.setState({ errorMessage: noWeb3ErrorMessage });
-        //     // console.log(err);
-        //   });
+        heritage.methods
+          .makeDonation(donationId)
+          .send({
+            from: accounts[0],
+            value: web3.utils.toWei(donationAmount, 'ether')
+          })
+          .then(response => {
+            console.log('Metamask response' + response.toString());
+            this.sendDonaterInfo();
+          })
+          .catch(err => {
+            this.setState({ errorMessage: noWeb3ErrorMessage });
+            // console.log(err);
+          });
       }
     } catch (err) {
       this.setState({ errorMessage: noWeb3ErrorMessage });
@@ -159,8 +157,6 @@ class App extends Component {
   sendDonaterInfo() {
     var email = this.state.donorEmail;
     var name = this.state.donorName;
-
-    debugger;
 
     this.firebase.push({
       email,
