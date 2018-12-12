@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Row, Col } from 'reactstrap';
 import './style.css';
 import web3 from '../web3';
+var $ = require ('jquery');
 const noWeb3ErrorMessage =
   'Could not connect to your web3 wallet. Please ensure your wallet is unlocked, and you are using the "Main Ethereum Network". ';
 const noWeb3WalletFound = (
@@ -62,20 +63,20 @@ class App extends Component {
          let user = accounts[0];
          var accountToCheck = window.web3.toChecksumAddress(user);
          let requestURL = 'https://heritage-api.glitch.me/api/user?address=' + accountToCheck;
+         const self = this;
 
-         fetch(requestURL, {
-            method: 'GET',
-            headers:{
-              'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Credentials':true,
-              'Access-Control-Allow-Methods':'POST, GET'
-            }
-          })
-          .then(results => {
-            return results.json();
-          }).then(data => {
-              this.setState({animals: data.tokenArray});
-          })
+         $.ajax({
+             url: requestURL,
+             type: 'GET',
+             cache: false,
+             dataType: 'json',
+             success: function (response) {
+               self.setState({ animals: response.tokenArray })
+             },
+             error: function (error) {
+              console.log(error)
+             }
+         });
        }
      } catch (err) {
        this.setState({ errorMessage: noWeb3ErrorMessage });
