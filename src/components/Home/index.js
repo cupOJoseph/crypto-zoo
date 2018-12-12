@@ -76,40 +76,40 @@ class App extends Component {
                 <p>Every day, older dogs in good health with wonderful personalities are euthanized. Muttville is working hard to change this by striving to care for and help senior and special needs dogs find loving homes.</p>
               </Col>
               <Col sm={{ size: 4 }}>
-                <h5>How does it work?</h5>
-                <p>When you make a donation, you can select a token representing a mutt of your choice and our system will send funds directly to Muttville via blockchain technology.</p>
-              </Col>
-              <Col sm={{ size: 4 }}>
-                <h5>If I pay with a credit card can I still receive an animal token?</h5>
-                <p>Yes! You have the option to add an Ethereum address (which you receive when installing Metamask). We will wait to send your token until your credit card has been processed. You may need to wait several days.</p>
-              </Col>
-            </Row>
-            <Row className="md-padding-top">
-              <Col sm={{ size: 4 }}>
-                <h5>What is Metamask and how do I set it up? Are there any additional fees associated with this?</h5>
-                <p>Metamask helps our internet browser, like Chrome or Firefox, read from Ethereum’s blockchain.</p>
-              </Col>
-              <Col sm={{ size: 4 }}>
-                <h5>What will happen with my donated money?</h5>
-                <p>All funds will go to Muttville to support animals needs from vaccinations to food and grooming</p>
-              </Col>
-              <Col sm={{ size: 4 }}>
-                <h5>I’m new to cryptocurrency, do I need to have a special wallet or account to get started?</h5>
-                <p>Yes, you will need somewhere to keep your animals safe. We recommend <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en">Metamask Chrome</a> or <a href="https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/">Firefox extension</a>.</p>
-              </Col>
-            </Row>
-            <Row className="md-padding-top">
-              <Col sm={{ size: 4 }}>
-                <h5>Why is this fundraiser special?</h5>
-                <p>We use Blockchain! 100% of the funds will go to Muttville.</p>
-              </Col>
-              <Col sm={{ size: 4 }}>
                 <h5>What are Mutt tokens?</h5>
                 <p>Each token is special non-fungible collectible, similar to a trading card. Our tokens are represented by a dog like the ones your donation are supporting, a unique description, and permanent proof of your donation stored on the Ethereum blockchain. Our tokens follow ERC-721.</p>
               </Col>
               <Col sm={{ size: 4 }}>
                 <h5>What’s ERC-721?</h5>
                 <p>It’s a programming standard for a popular type of collectable blockchain token, where each token is provably unique, tradable, and permanent. We use this standard to integrate more services with our tokens.</p>
+              </Col>
+            </Row>
+            <Row className="md-padding-top">
+              <Col sm={{ size: 4 }}>
+                <h5>How does it work?</h5>
+                <p>You make a donation using our platform and can select a token of your choice representing one of Muttville’s dogs. Funds will then be sent directly to Muttville via Ethereum’s blockchain.</p>
+              </Col>
+              <Col sm={{ size: 4 }}>
+                <h5>If I pay with a credit card can I still receive a Mutt token?</h5>
+                <p>Yes! You have the option to add an Ethereum address (which you receive when installing Metamask). We will wait to send your token until your credit card has been processed. You may need to wait several days.</p>
+              </Col>
+              <Col sm={{ size: 4 }}>
+                <h5>I’m new to cryptocurrency, do I need to have a special wallet or account to get started?</h5>
+                <p>Yes, you will need somewhere to keep your Mutt tokens safe. We recommend <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en">Metamask Chrome</a> or <a href="https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/">Firefox extension</a>.</p>
+              </Col>
+            </Row>
+            <Row className="md-padding-top">
+              <Col sm={{ size: 4 }}>
+                <h5>What is Metamask and how do I set it up? Are there any additional fees associated with this?</h5>
+                <p>Metamask is a chrome extension that allows donors using ETH to access their tokens, cryptocurrency via their browser quick and easy.</p>
+              </Col>
+              <Col sm={{ size: 4 }}>
+                <h5>What will happen with my donated money?</h5>
+                <p>All funds will go to Muttville to support animals needs from vaccinations to food and grooming!</p>
+              </Col>
+              <Col sm={{ size: 4 }}>
+                <h5>How long is this fundraiser running?</h5>
+                <p>Donations can be made from today until December 30th.</p>
               </Col>
             </Row>
           </Container>
