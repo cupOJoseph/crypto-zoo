@@ -149,8 +149,7 @@ class App extends Component {
         );
 
         heritage.methods.getDonation(animalId).call().then((token) => {
-          let originalDonation = token._originalDonationId;
-          donationId = Number(originalDonation);
+          donationId = token._originalDonationId;
 
           heritage.methods
             .makeDonation(donationId)
