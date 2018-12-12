@@ -74,7 +74,7 @@ class App extends Component {
                self.setState({ animals: response.tokenArray })
              },
              error: function (error) {
-                 alert("fail - " + error);
+              console.log(error)
              }
          });
        }
