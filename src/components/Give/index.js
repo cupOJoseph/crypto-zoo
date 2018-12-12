@@ -127,10 +127,9 @@ class App extends Component {
     let {
       donationAmount,
       accounts,
-      activeDonateModal,
       metamaskEnabled
     } = this.state;
-    const donationId = activeDonateModal;
+    let donationId;
 
     if (animalId < 26) {
       donationAmount = .25;
@@ -149,20 +148,27 @@ class App extends Component {
           heritageContractAddress
         );
 
-        heritage.methods
-          .makeDonation(donationId)
-          .send({
-            from: accounts[0],
-            value: web3.utils.toWei(donationAmount, 'ether')
-          })
-          .then(response => {
-            console.log('Metamask response' + response.toString());
-            this.sendDonaterInfo();
-          })
-          .catch(err => {
-            this.setState({ errorMessage: noWeb3ErrorMessage });
-            // console.log(err);
-          });
+        heritage.methods.getDonation(animalId).call().then((token) => {
+          donationId = token._originalDonationId;
+
+          debugger
+
+          heritage.methods
+            .makeDonation(donationId)
+            .send({
+              from: accounts[0],
+              value: web3.utils.toWei(donationAmount, 'ether')
+            })
+            .then(response => {
+              console.log('Metamask response' + response.toString());
+              debugger;
+              this.sendDonaterInfo();
+            })
+            .catch(err => {
+              this.setState({ errorMessage: noWeb3ErrorMessage });
+              // console.log(err);
+            });
+        })
       }
     } catch (err) {
       this.setState({ errorMessage: noWeb3ErrorMessage });
