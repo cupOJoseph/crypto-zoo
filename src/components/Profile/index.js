@@ -30,9 +30,6 @@ class App extends Component {
       accounts: [],
       metamaskEnabled: false,
       errorMessage: false,
-      dogId: null,
-      dog: null,
-      dogTokens: [],
     };
   }
 
