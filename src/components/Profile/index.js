@@ -95,7 +95,7 @@ class App extends Component {
       <div className="container">
         <Row>
           {this.state.animals.map(function(animal, i) {
-              var imgstring = "/dog" + animal.TokenID + ".jpg";
+              var imgstring = "/dog" + animal.fundraiser_id + ".jpg";
 
               return <Col className="token-card" sm="3" key={ i }>
                   <Card>
