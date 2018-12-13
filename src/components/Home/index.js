@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 import { Button, Container, Row, Col } from 'reactstrap';
 import {Link} from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 import './style.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.initializeReactGA();
+  }
+
+  initializeReactGA() {
+    ReactGA.initialize('UA-130917169-1');
+    ReactGA.pageview('/');
+  }
+
   render() {
     return (
       <div className="App">

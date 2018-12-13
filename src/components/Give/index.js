@@ -15,6 +15,7 @@ import { Form } from 'semantic-ui-react';
 import './style.css';
 import firebase from '../../firebase.js'
 import web3 from '../web3';
+import ReactGA from 'react-ga';
 import heritageABI from '../heritageABI';
 const ethereumLogo = require('../../assets/ethereum.png');
 const creditCard = require('../../assets/creditCard.png');
@@ -63,7 +64,13 @@ class App extends Component {
 
   componentDidMount = () => {
     this.enableWeb3();
+    this.initializeReactGA();
   };
+
+  initializeReactGA() {
+    ReactGA.initialize('UA-130917169-1');
+    ReactGA.pageview('/give');
+  }
 
   importDogTokenImages() {
     var animals = [];
