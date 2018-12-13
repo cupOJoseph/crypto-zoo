@@ -3,8 +3,10 @@ import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Row, Col } from 'reactstrap';
 import './style.css';
 import ReactGA from 'react-ga';
+import heritageABI from '../heritageABI';
 import web3 from '../web3';
 var $ = require ('jquery');
+const heritageContractAddress = '0xBca55E153d08d77BFac33e7153dC6eC12e42Bd49';
 const noWeb3ErrorMessage =
   'Could not connect to your web3 wallet. Please ensure your wallet is unlocked, and you are using the "Main Ethereum Network". ';
 const noWeb3WalletFound = (
@@ -78,7 +80,37 @@ class App extends Component {
              cache: false,
              dataType: 'json',
              success: function (response) {
-               self.setState({ animals: response.tokenArray })
+               // self.setState({ animals: response.tokenArray });
+               let dogs = response.tokenArray;
+               var results = new Promise((resolve, reject) => {
+
+                 dogs.forEach((dog) => {
+                   // try {
+                     let fundraiserId;
+                     const heritage = new web3.eth.Contract(
+                       heritageABI,
+                       heritageContractAddress
+                     );
+                     var imgstring;
+
+                     heritage.methods.getDonation(dog.TokenID).call().then((token) => {
+                       fundraiserId = token._originalDonationId;
+                       debugger;
+                       // imgstring = "/dog" + fundraiserId + ".jpg";
+                       resolve();
+                     })
+                   // } catch(e) {
+                   //   console.log(e);
+                   // }
+                 })
+
+               });
+
+               results.then(() => {
+                 debugger;
+               })
+
+               self.setState({ dogs });
              },
              error: function (error) {
               console.log(error)
@@ -95,12 +127,10 @@ class App extends Component {
       <div className="container">
         <Row>
           {this.state.animals.map(function(animal, i) {
-              var imgstring = "/dog" + animal.TokenID + ".jpg";
-
               return <Col className="token-card" sm="3" key={ i }>
                   <Card>
                     <CardTitle>#{animal.TokenID}</CardTitle>
-                    <CardImg top src={imgstring} alt="Card image cap" />
+                    <CardImg top src={animal.tokenID} alt="Card image cap" />
                     <CardBody>
                       <CardText>{animal.description}</CardText>
                     </CardBody>
