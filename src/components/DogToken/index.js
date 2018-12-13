@@ -3,8 +3,7 @@ import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Row, Col } from 'reactstrap';
 import heritageABI from '../heritageABI';
 import web3 from '../web3';
-
-const heritageContractAddress = '0xBca55E153d08d77BFac33e7153dC6eC12e42Bd49';
+const heritageContractAddress = '0xf30fe881912d8b0c5453048683fc5c91c107461d';
 
 class App extends Component {
   constructor(props) {
@@ -40,7 +39,6 @@ class App extends Component {
   };
 
   getDogImage() {
-    // this.props.animal
     var currentThis = this;
     try {
       let fundraiserId;

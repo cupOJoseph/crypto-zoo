@@ -7,7 +7,7 @@ import heritageABI from '../heritageABI';
 import web3 from '../web3';
 import DogToken from '../DogToken/index.js'
 var $ = require ('jquery');
-const heritageContractAddress = '0xBca55E153d08d77BFac33e7153dC6eC12e42Bd49';
+const heritageContractAddress = '0xf30fe881912d8b0c5453048683fc5c91c107461d';
 const noWeb3ErrorMessage =
   'Could not connect to your web3 wallet. Please ensure your wallet is unlocked, and you are using the "Main Ethereum Network". ';
 const noWeb3WalletFound = (
