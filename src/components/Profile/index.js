@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Row, Col } from 'reactstrap';
 import './style.css';
+import ReactGA from 'react-ga';
 import web3 from '../web3';
 var $ = require ('jquery');
 const noWeb3ErrorMessage =
@@ -31,6 +32,12 @@ class App extends Component {
 
   componentWillMount() {
     this.enableWeb3();
+    this.initializeReactGA();
+  }
+
+  initializeReactGA() {
+    ReactGA.initialize('UA-130917169-1');
+    ReactGA.pageview('/profile');
   }
 
   enableWeb3 = () => {

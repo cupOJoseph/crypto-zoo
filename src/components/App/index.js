@@ -39,7 +39,6 @@ const AirbusRoute = () => (
 
 class App extends Component {
   componentDidMount() {
-
   }
 
   render() {
