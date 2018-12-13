@@ -123,44 +123,60 @@ class App extends Component {
 
   setDogState(dogs) {
     var currentThis = this;
+    // debugger;
     dogs.forEach((dog) => {
+      // console.log(dog)
+      // debugger;
       currentThis.setState({dog})
-      try {
+      // console.log(currentThis.state.dog)
+      // debugger;
+      // try {
         let fundraiserId;
+        debugger;
+        var imgstring;
         const heritage = new web3.eth.Contract(
           heritageABI,
           heritageContractAddress
         );
-        var imgstring;
+        var results = new Promise((resolve, reject) => {
+          // debugger;
+          heritage.methods.getDonation(dog.TokenID).call().then((token) => {
+            fundraiserId = token._originalDonationId;
+            currentThis.setState({dogId: fundraiserId})
+            // debugger;
+            var dog = currentThis.state.dog
+            var dogId = currentThis.state.dogId
+            dog['fundraiserImage'] = "/dog" + dogId + ".jpg";
+            console.log(dog);
 
-        heritage.methods.getDonation(dog.TokenID).call().then((token) => {
-          fundraiserId = token._originalDonationId;
-          currentThis.setState({dogId: fundraiserId})
-        }).then(() => {
-          var dog = currentThis.state.dog
-          var dogId = currentThis.state.dogId
-          dog['fundraiserImage'] = "/dog" + dogId + ".jpg";
-
-          console.log(dog);
-
-          this.setState({
-            dogTokens: [...this.state.dogTokens, dog]
+            debugger;
+            resolve()
           })
 
-          console.log(currentThis.state.dogTokens);
+        });
 
-          // currentThis.setState({ dogTokens: [...this.state.dogTokens, dog] });
+         results.then(() => {
+           debugger;
+         })
 
-          debugger;
-        })
-      } catch(e) {
-        console.log(e);
-      }
+        //
+        //
+        // heritage.methods.getDonation(dog.TokenID).call().then((token) => {
+        //   fundraiserId = token._originalDonationId;
+        //   currentThis.setState({dogId: fundraiserId})
+        //   debugger;
+        //   var dog = currentThis.state.dog
+        //   var dogId = currentThis.state.dogId
+        //   dog['fundraiserImage'] = "/dog" + dogId + ".jpg";
+        //   console.log(dog)
+        //   console.log(dogId)
+        //
+        //   debugger;
+        // })
+      // } catch(e) {
+      //   console.log(e);
+      // }
     })
-
-    // this.setState({animals: dogTokens});
-
-    // self.setState({ dogs });
   }
 
   render() {
