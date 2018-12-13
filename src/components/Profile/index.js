@@ -29,6 +29,9 @@ class App extends Component {
       accounts: [],
       metamaskEnabled: false,
       errorMessage: false,
+      dogId: null,
+      dog: null,
+      dogTokens: [],
     };
   }
 
@@ -80,37 +83,33 @@ class App extends Component {
              cache: false,
              dataType: 'json',
              success: function (response) {
+
+               self.setDogState(response.tokenArray);
                // self.setState({ animals: response.tokenArray });
-               let dogs = response.tokenArray;
-               var results = new Promise((resolve, reject) => {
-
-                 dogs.forEach((dog) => {
-                   // try {
-                     let fundraiserId;
-                     const heritage = new web3.eth.Contract(
-                       heritageABI,
-                       heritageContractAddress
-                     );
-                     var imgstring;
-
-                     heritage.methods.getDonation(dog.TokenID).call().then((token) => {
-                       fundraiserId = token._originalDonationId;
-                       debugger;
-                       // imgstring = "/dog" + fundraiserId + ".jpg";
-                       resolve();
-                     })
-                   // } catch(e) {
-                   //   console.log(e);
-                   // }
-                 })
-
-               });
-
-               results.then(() => {
-                 debugger;
-               })
-
-               self.setState({ dogs });
+             //   let dogs = response.tokenArray;
+             //   // var results = new Promise((resolve, reject) => {
+             //   debugger;
+             //     dogs.forEach((dog) => {
+             //       try {
+             //         let fundraiserId;
+             //         const heritage = new web3.eth.Contract(
+             //           heritageABI,
+             //           heritageContractAddress
+             //         );
+             //         var imgstring;
+             //
+             //         heritage.methods.getDonation(dog.TokenID).call().then((token) => {
+             //           fundraiserId = token._originalDonationId;
+             //           // debugger;
+             //           // imgstring = "/dog" + fundraiserId + ".jpg";
+             //           // resolve();
+             //         })
+             //       } catch(e) {
+             //         console.log(e);
+             //       }
+             //     })
+             //
+             //   // self.setState({ dogs });
              },
              error: function (error) {
               console.log(error)
@@ -122,15 +121,57 @@ class App extends Component {
      }
   }
 
+  setDogState(dogs) {
+    var currentThis = this;
+    dogs.forEach((dog) => {
+      currentThis.setState({dog})
+      try {
+        let fundraiserId;
+        const heritage = new web3.eth.Contract(
+          heritageABI,
+          heritageContractAddress
+        );
+        var imgstring;
+
+        heritage.methods.getDonation(dog.TokenID).call().then((token) => {
+          fundraiserId = token._originalDonationId;
+          currentThis.setState({dogId: fundraiserId})
+        }).then(() => {
+          var dog = currentThis.state.dog
+          var dogId = currentThis.state.dogId
+          dog['fundraiserImage'] = "/dog" + dogId + ".jpg";
+
+          console.log(dog);
+
+          this.setState({
+            dogTokens: [...this.state.dogTokens, dog]
+          })
+
+          console.log(currentThis.state.dogTokens);
+
+          // currentThis.setState({ dogTokens: [...this.state.dogTokens, dog] });
+
+          debugger;
+        })
+      } catch(e) {
+        console.log(e);
+      }
+    })
+
+    // this.setState({animals: dogTokens});
+
+    // self.setState({ dogs });
+  }
+
   render() {
     return (
       <div className="container">
         <Row>
-          {this.state.animals.map(function(animal, i) {
+          {this.state.dogTokens.map(function(animal, i) {
               return <Col className="token-card" sm="3" key={ i }>
                   <Card>
                     <CardTitle>#{animal.TokenID}</CardTitle>
-                    <CardImg top src={animal.tokenID} alt="Card image cap" />
+                    <CardImg top src={animal.fundraiserImage} alt="Card image cap" />
                     <CardBody>
                       <CardText>{animal.description}</CardText>
                     </CardBody>
