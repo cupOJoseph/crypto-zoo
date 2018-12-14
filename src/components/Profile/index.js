@@ -3,8 +3,11 @@ import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Row, Col } from 'reactstrap';
 import './style.css';
 import ReactGA from 'react-ga';
+import heritageABI from '../heritageABI';
 import web3 from '../web3';
+import DogToken from '../DogToken/index.js'
 var $ = require ('jquery');
+const heritageContractAddress = '0xf30fe881912d8b0c5453048683fc5c91c107461d';
 const noWeb3ErrorMessage =
   'Could not connect to your web3 wallet. Please ensure your wallet is unlocked, and you are using the "Main Ethereum Network". ';
 const noWeb3WalletFound = (
@@ -78,7 +81,7 @@ class App extends Component {
              cache: false,
              dataType: 'json',
              success: function (response) {
-               self.setState({ animals: response.tokenArray })
+               self.setState({animals: response.tokenArray});
              },
              error: function (error) {
               console.log(error)
@@ -95,17 +98,7 @@ class App extends Component {
       <div className="container">
         <Row>
           {this.state.animals.map(function(animal, i) {
-              var imgstring = "/dog" + animal.fundraiser_id + ".jpg";
-
-              return <Col className="token-card" sm="3" key={ i }>
-                  <Card>
-                    <CardTitle>#{animal.TokenID}</CardTitle>
-                    <CardImg top src={imgstring} alt="Card image cap" />
-                    <CardBody>
-                      <CardText>{animal.description}</CardText>
-                    </CardBody>
-                  </Card>
-                </Col>
+              return <DogToken animal={animal} key={i} i={i}/>
           })}
         </Row>
       </div>
