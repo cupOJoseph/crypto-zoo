@@ -115,7 +115,7 @@ class App extends Component {
               </Col>
               <Col sm={{ size: 4 }}>
                 <h5>What will happen with my donated money?</h5>
-                <p>All funds will go to Muttville to support animals needs from vaccinations to food and grooming!</p>
+                <p>All funds will go to Muttville and support the needs of senior dogs.</p>
               </Col>
               <Col sm={{ size: 4 }}>
                 <h5>How long is this fundraiser running?</h5>
