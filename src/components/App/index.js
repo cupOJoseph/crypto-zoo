@@ -51,7 +51,7 @@ class App extends Component {
               <NavLink href="/">Home</NavLink>
             </NavItem>
               <NavItem>
-                <NavLink href="https://muttville.org/" target="_blank">MuttVille</NavLink>
+                <NavLink href="https://muttville.org/" target="_blank">Muttville</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://www.airbus-sv.com/projects/8" target="_blank">Airbus Heritage</NavLink>
