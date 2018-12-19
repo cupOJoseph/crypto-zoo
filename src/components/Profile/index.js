@@ -94,15 +94,31 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="container">
-        <Row>
-          {this.state.animals.map(function(animal, i) {
-              return <DogToken animal={animal} key={i} i={i}/>
-          })}
-        </Row>
-      </div>
-    );
+    if (this.state.animals.length < 1) {
+      return (
+        <div className="container">
+          <Col className="token-card" sm="3">
+            <Card>
+              <CardTitle>#000</CardTitle>
+              <CardImg top src='/sad_dog.jpg' alt="Card image cap" />
+              <CardBody>
+                <CardText>You don't own any Mutt tokens yet. Head over to the <a href="/give">Give</a> page to get your Mutt token now!</CardText>
+              </CardBody>
+            </Card>
+          </Col>
+        </div>
+      )
+    } else {
+      return (
+        <div className="container">
+          <Row>
+            {this.state.animals.map(function(animal, i) {
+                return <DogToken animal={animal} key={i} i={i}/>
+            })}
+          </Row>
+        </div>
+      );
+    }
   }
 }
 
