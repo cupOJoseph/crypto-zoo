@@ -11,6 +11,16 @@
   text-align: center;
 }
 
+.alert-visible {
+  top: 0;
+  position: fixed !important;
+  z-index: 8;
+  background-color: #3ec0d6 !important;
+  border-color: #3ec0d6 !important;
+  color: white !important;
+  margin-left: 2% !important;
+}
+
 .card-body button {
   margin-left: 25%;
 }

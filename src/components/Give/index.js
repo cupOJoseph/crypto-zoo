@@ -8,7 +8,8 @@ import {
   CardSubtitle,
   Row,
   Col,
-  Button
+  Button,
+  Alert,
 } from 'reactstrap';
 import { Modal } from 'react-bootstrap';
 import { Form } from 'semantic-ui-react';
@@ -49,6 +50,7 @@ class App extends Component {
       accounts: [],
       donorName: '',
       donorEmail: '',
+      alertVisible: false,
     };
 
     this.firebase = firebase.database().ref();
@@ -56,6 +58,7 @@ class App extends Component {
 
     this.hideDonateModal = this.hideDonateModal.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
+    this.onDismiss = this.onDismiss.bind(this);
   }
 
   componentWillMount() {
@@ -166,7 +169,9 @@ class App extends Component {
             })
             .then(response => {
               console.log('Metamask response' + response.toString());
+              this.hideDonateModal();
               this.sendDonaterInfo();
+              this.showAlertMessage();
             })
             .catch(err => {
               this.setState({ errorMessage: noWeb3ErrorMessage });
@@ -180,6 +185,11 @@ class App extends Component {
     }
   };
 
+  showAlertMessage() {
+    debugger;
+    this.setState({ alertVisible: true });
+  }
+
   sendDonaterInfo() {
     var email = this.state.donorEmail;
     var name = this.state.donorName;
@@ -190,11 +200,20 @@ class App extends Component {
     })
   }
 
+  onDismiss() {
+    this.setState({ alertVisible: false });
+  }
+
   render() {
     var self = this;
 
     return (
       <div className="container">
+      <Col sm="12" md={{ size: 10, offset: 2 }}>
+        <Alert color="success" className="alert-visible" isOpen={this.state.alertVisible} toggle={this.onDismiss}>
+          Your transaction was successful. Check out the profile page to see your token.
+        </Alert>
+      </Col>
         <Row>
           {this.state.animals.map(function(animal, i) {
             return (
