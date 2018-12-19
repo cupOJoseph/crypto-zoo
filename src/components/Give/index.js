@@ -186,7 +186,6 @@ class App extends Component {
   };
 
   showAlertMessage() {
-    debugger;
     this.setState({ alertVisible: true });
   }
 
