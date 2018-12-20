@@ -170,8 +170,8 @@ class App extends Component {
             .then(response => {
               console.log('Metamask response' + response.toString());
               this.hideDonateModal();
-              this.sendDonaterInfo();
               this.showAlertMessage();
+              this.sendDonaterInfo();
             })
             .catch(err => {
               this.setState({ errorMessage: noWeb3ErrorMessage });
