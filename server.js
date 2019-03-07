@@ -1,5 +1,6 @@
+const mongoose = require('mongoose');
 const express = require('express');
-
+const router = express.Router();
 var app = express();
 // app.set('port', process.env.PORT || 3001);
 
@@ -7,6 +8,22 @@ var app = express();
 const https = require('https');
 const http = require('http');
 const fs = require('fs');
+
+// initialize mongodb connection via mongoose
+mongoose.connect("localhost:27017");
+mongoose.Promise = global.Promise; // make mongoose use ES6
+mongoose.connection.on('error', (err) => {console.error(`Error: ${err.message}`);});
+//import model
+require('./models/Record');
+// begin controller
+const Record = mongoose.model('Record');
+// POST record, res record
+createRecord = async (req, res) => {
+  const record = await (new Record(req.body)).save();
+  res.status(200).send();
+};
+
+
 
 // Certificate
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/heritage.aero/privkey.pem', 'utf8');
@@ -21,8 +38,8 @@ const credentials = {
 
 // if (process.env.NODE_ENV === 'production') {
 app.set('port', 80);
-app.use(express.static('build'));
-app.use('*', express.static('build'));
+app.use(express.static('cryptoreef'));
+app.use('*', express.static('cryptoreef'));
 // }
 
 // Starting both http & https servers
