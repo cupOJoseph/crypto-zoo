@@ -8,14 +8,57 @@ const https = require('https');
 const http = require('http');
 const fs = require('fs');
 var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+const BigNumber = require('bignumber.js');
 
-var jsonParser = bodyParser.json();
+
+var jsonParser = bodyParser.json({ type: 'application/*+json' });
 
 //DB setup
+var mongodb = require('mongodb');
 var mongoose = require('mongoose');
-mongoose.set('useFindAndModify', false);
+//require('./db/config');
+var tokenModal =  new mongoose.model("Tokenmodel", {
+  token_id: {
+    type: Number
+  },
+  type: {
+    type: Number
+  },
+  owner: {
+    type: String
+  },
+  amount: {
+    type: String
+  }
+});
 
-mongoose.promise = global.Promise;
+const mongouri = "mongodb://localhost:27017/heritagedb";
+mongoose.connect(
+  mongouri,
+  { useNewUrlParser: true }
+).then(function(value) {
+  //console.log("db: ", value.Mongoose);
+  //var collections = value.collection.find("heritage");
+  //console.log(collections);
+  //console.log("mongo uri connected.");
+});
+var db = mongoose.connection
+db.on('error', console.error.bind(console, '==============connection error===============:'));
+
+db.once('open', function(){
+  tokenModal.findOneAndUpdate(
+          { token_id: "286" },
+          { $set: { owner: "0xc50a111db3d5e72927339771aa7181396eb0628f", type: "206", amount: "10000000000000" } },
+          {
+            upsert: true,
+            new: true
+          },
+          function() {
+            console.log('Transfer complete.');
+          }
+    );
+});
 
 // Certificate
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/dapp.heritage.aero/privkey.pem', 'utf8');
@@ -68,38 +111,6 @@ app.listen(app.get('port'), () => {
 module.exports = { app };
 
 
-// =============== //
-// mongoose setup //
-// ============== //
-//schema model for each token tracked in db
-var tokenmodel = new mongoose.Schema({
-  token_id: {
-    type: Number
-  },
-  type: {
-    type: Number
-  },
-  owner: {
-    type: Number
-  },
-  amount: {
-    type: String
-  }
-});
-var Token = mongoose.model('Token', tokenmodel);
-
-//connect to local mongodb
-const mongouri = "mongodb://localhost:27017/heritage";
-mongoose.connect(mongouri);
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
-	console.log("connected to the db successfully");
-});
-
-
-
 // ============== //
 // API            //
 // ============== //
@@ -118,34 +129,34 @@ router.get('/contract', function(request, response) {
 });
 
 // API handle POST of events
-router.post('/31c01e25f4db50d00a47a379d3d64c98', jsonParser, function(request, response) {
+router.post('/31c01e25f4db50d00a47a379d3d64c98', urlencodedParser, function(req, response) {
 	try {
-		console.log("got a post: ", req.body);
+		console.log("got a post: ", req.query);
 		//try to add to db
 		//example {"id":"288","type":"201","amount":"100000000000000000"}
-		var donation = new Token({
-			token_id: req.body["id"],
-			type: 201,
-			owner: req.body["owner"],
-			amount: req.body["amount"]
-		});
 		//save to mongo
-		donation.save(function (err, donation) {
-	    if (err){
-				return console.error(err);
-			}
-			else{
-				console.log("donation saved successfully.");
-			}
-  	});
+		tokenModal.findOneAndUpdate(
+	          { token_id: req.query["id"] },
+	          { $set: { owner: req.query["owner"], type: "201", amount: req.query["amount"] } },
+	          {
+	            upsert: true,
+	            new: true
+	          },
+	          function() {
+	            console.log('Transfer complete.');
+	          }
+	    );
 
 	}
 		// POST ERRORS
 	catch (err) {
     console.log(err);
-    response.status(400).send();
-		console.log(request);
+    response.status(399).send();
+		//console.log(request);
   }
   response.status(200).send("hi");
+});
 
+router.get('/', urlencodedParser, function(request, response) {
+	var userAddress = request.param('address');
 });
