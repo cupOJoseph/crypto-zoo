@@ -159,4 +159,6 @@ router.post('/31c01e25f4db50d00a47a379d3d64c98', urlencodedParser, function(req,
 
 router.get('/', urlencodedParser, function(request, response) {
 	var userAddress = request.param('address');
+
+  response.status(200).send("sent");
 });
