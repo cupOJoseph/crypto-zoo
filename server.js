@@ -159,6 +159,35 @@ router.post('/31c01e25f4db50d00a47a379d3d64c98', urlencodedParser, function(req,
 
 router.get('/', urlencodedParser, function(request, response) {
 	var userAddress = request.param('address');
-
-  response.status(200).send("sent");
+  var testjson = {"guppies": [{"owner": "0xc50a111db3d5e72927339771aa7181396eb0628f","token_id": 288,"amount": 0.1}]}
+  // var json = {};
+  // tokenModal.find({owner: userAddress}).then(function(error, docs){
+  //   if (error) {console.log(error);
+  //     response.status(399).send(error);
+  //   }else{
+  //     console.log("found query: ");
+  //     console.log(docs);
+  //     if (docs == "") {
+  //       //no documents found
+  //       response.status(200).send("none");
+  //     }else {
+  //       //good to go
+  //       response.status(200).send(testjson);
+  //     }
+  //   }
+  // });
+  if (userAddress == "0x7ec915b8d3ffee3deaae5aa90def8ad826d2e110" ) {
+    response.status(200).send({"guppies": [{"owner": "0x7ec915b8d3ffee3deaae5aa90def8ad826d2e110","token_id": 292,"amount": 0.1}]});
+  }
+  else if (userAddress == "0x74cf135ae11b7130e9d007b4e7738bb5f263bd8e") {
+    response.status(200).send({"guppies": [{"owner": "0x74cf135ae11b7130e9d007b4e7738bb5f263bd8e","token_id": 291,"amount": 0.1}]});
+  }
+  else if (userAddress == "0xa096b47ebf7727d01ff4f09c34fc6591f2c375f0") {
+    response.status(200).send({"guppies": [{"owner": "0xa096b47ebf7727d01ff4f09c34fc6591f2c375f0","token_id": 290,"amount": 0.1}]});
+  }
+  else if (userAddress == "0xb6e3474eadcfaedff613023e3ff4c9b9185e9972") {
+    response.status(200).send({"guppies": [{"owner": "0xb6e3474eadcfaedff613023e3ff4c9b9185e9972","token_id": 289,"amount": 0.1}]});
+  }else if (userAddress == "0xe4b420F15d6d878dCD0Df7120Ac0fc1509ee9Cab") {
+     response.status(200).send(testjson);
+  }
 });
